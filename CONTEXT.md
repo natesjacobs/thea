@@ -53,7 +53,8 @@ Top-level folders named for a Unix timestamp in seconds. Each holds the material
 | Folder | Offset | Moment |
 |---|---|---|
 | `41024881767225600` | +1.3 Gyr | CO₂ starvation endpoint — last primary production on land |
-| `31557601767225600` | +1.0 Gyr | One billion years from now |
+| `58381561767225600` | +1.85 Gyr | Land goes sterile; ocean is the whole biosphere |
+| `63115201767225600` | +2.0 Gyr | Oceans gone |
 | `239522185767225600` | +7.59 Gyr | RGB tip, the moment before the helium flash |
 | `246149281767225600` | +7.8 Gyr | Peak white dwarf intensity |
 
@@ -82,6 +83,8 @@ Places where the science is genuinely unsettled, and the fiction can move freely
 - Whether Earth is engulfed during the red giant phase. Flips on mass-loss assumptions.
 - Whether Mercury's orbit destabilizes (~1% chance within 5 Gyr).
 - Whether the Milky Way and Andromeda merge at all (recent estimates range from ~50% to ~90%).
+
+**Evolution is held fixed in all the standard models.** Caldeira & Kasting and Ozaki & Reinhard run present-day photosynthetic parameters against a brightening sun across 700 Myr — longer than the entire history of land plants. C4 evolved at least 66 separate times under exactly this selection pressure, origin to ecological dominance in ~30 Myr. Assume adaptation works and the binding constraint on land life shifts from carbon to heat, which moves the end of land plants from ~1.3 Gyr to ~1.85 Gyr. Treat the published numbers as upper bounds on pessimism.
 
 ## Notable ordering
 
