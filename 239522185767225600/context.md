@@ -12,4 +12,4 @@ So this is the peak, and the thing on the far side of it is a reprieve, not an e
 
 From a surface, if there were one: a dull red globe filling a large fraction of the sky, mottled with convection cells the size of planets. Perpetual twilight-red. Shells of shed mass hanging as a hazy glow around it.
 
-See `../science/timeline.csv`.
+See `./timeline.csv` and `../timeline.csv`.

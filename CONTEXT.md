@@ -63,7 +63,7 @@ Convention: `unix_seconds = 1767225600 + (Gyr × 10⁹ × 31557600)`, where 1767
 
 These exceed 32-bit time by a wide margin. The first five fit in signed 64-bit (max ~9.22×10¹⁸), so ordinary `int64` arithmetic works. The black dwarf does not — it overflows int64 by a factor of ~3,400 and needs arbitrary precision. No standard date library will render any of them.
 
-Note that two of the four are ranges collapsed to a point. The CO₂ endpoint spans 0.9–1.5 Gyr across models; the timestamp takes the upper end of the window in `timeline.csv`. Treat these as labels, not claims of precision.
+Note that the first three are ranges collapsed to a point. The CO₂ endpoint spans 0.9–1.5 Gyr across models; the timestamp takes the upper end of the window in `timeline.csv`. Treat these as labels, not claims of precision.
 
 ## Canon notes
 

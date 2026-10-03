@@ -12,4 +12,4 @@ The irony worth using: Earth still has oceans here. It still has a breathable-lo
 
 Range, not a date. The anchor is the upper end of the CSV's stated window.
 
-See `../science/timeline.csv`.
+See `./timeline.csv` and `../timeline.csv`.

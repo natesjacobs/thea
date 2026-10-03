@@ -12,6 +12,6 @@ So the binding constraint shifts. Land dies of temperature, late, rather than of
 
 The ocean outlasts it for three reasons. Water has enormous thermal mass and lags the air. Bicarbonate dominates dissolved inorganic carbon by about two orders of magnitude over dissolved CO₂, so the marine carbon reservoir is deep where the atmospheric one is empty. And marine phototrophs already carry better machinery than anything on land.
 
-This opens a window of roughly 500 Myr: continents sterile and silent, oceans still productive, running until the water itself leaves. It closes at `../63115201767225600`.
+This opens a window of roughly 150 Myr: continents sterile and silent, oceans still productive, running until the water itself leaves. It closes at `../63115201767225600`.
 
 Speculative — the standard models hold photosynthetic biology fixed at present-day parameters and so put land's end much earlier. See CONTEXT.md.

@@ -10,4 +10,4 @@ What is left is Venus: a thick CO₂ atmosphere, no surface water, a crust bakin
 
 Deep subsurface microbes persist somewhere below, in the narrow band still under 122 °C. They have a few hundred million years left.
 
-Range collapsed to a point. See `../science/timeline.csv`.
+Range collapsed to a point. See `./timeline.csv` and `../timeline.csv`.
