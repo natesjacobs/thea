@@ -22,64 +22,74 @@
 <text x="170" y="330">First Circle</text><text x="450" y="330">Second Circle</text><text x="730" y="330">Third Circle</text>
 </g>
 <text id="read" x="450" y="418" text-anchor="middle" font-size="18" fill="#111"></text>
+<g id="ctl" style="touch-action:none;cursor:pointer">
+<rect x="130" y="436" width="640" height="48" fill="#fff"/>
 <line x1="150" y1="460" x2="750" y2="460" stroke="#888" stroke-width="3"/>
-<circle id="knob" cy="460" r="11" fill="#111" tabindex="0" style="cursor:pointer;touch-action:none"/>
-<text x="150" y="494" text-anchor="middle" font-size="12" fill="#888">1 s / s</text>
-<text x="750" y="494" text-anchor="middle" font-size="12" fill="#888">10²² s / s</text>
+<circle id="knob" cy="460" r="11" fill="#111" tabindex="0" role="slider" aria-label="Speed" aria-valuemin="0" aria-valuemax="22"/>
+</g>
+<text x="150" y="504" text-anchor="middle" font-size="12" fill="#888">1 s / s</text>
+<text x="750" y="504" text-anchor="middle" font-size="12" fill="#888">10²² s / s</text>
 <script><![CDATA[
 (function(){
 var $=function(i){return document.getElementById(i)};
-var Y=31557600,P=[1,3*86400,1000*Y],L=[100*Y,1e6*Y,1e9*Y],BD=1e15*Y;
+// Single source of truth: el, total elapsed time in integer microseconds (BigInt).
+// Dots, counts and the clock are all derived from it each frame.
+var US=1000000n,Y=31557600n;
+var Pm=[US,3n*86400n*US,1000n*Y*US],Lm=[100n*Y*US,1000000n*Y*US,1000000000n*Y*US],BD=10n**15n*Y*US;
+var P=[1,3*86400,1000*31557600];
 var CX=[170,450,730],CY=190,R=100,MAXE=22,LIM=15,X0=150,X1=750;
-var e=0,el=0,ph=[0,0,0],last=null,drag=false,note=0;
+var e=0,el=0n,rem=0,last=null,drag=false,note=0,shownE=-1;
 var d=[$('d0'),$('d1'),$('d2')],b=[$('b0'),$('b1'),$('b2')],c=[$('c0'),$('c1'),$('c2')],l=[$('l0'),$('l1'),$('l2')];
-var U=[[1,'s'],[60,'min'],[3600,'h'],[86400,'d'],[Y,'y'],[Y*1e3,'ky'],[Y*1e6,'My'],[Y*1e9,'Gy'],[Y*1e12,'Ty'],[Y*1e15,'Py']];
+var Ys=31557600,U=[[1,'s'],[60,'min'],[3600,'h'],[86400,'d'],[Ys,'y'],[Ys*1e3,'ky'],[Ys*1e6,'My'],[Ys*1e9,'Gy'],[Ys*1e12,'Ty'],[Ys*1e15,'Py']];
 function dur(s){
- var i=0;while(i<U.length-1&&s>=U[i+1][0])i++;
+ var i=0;while(i<U.length-1&&s*1.005>=U[i+1][0])i++;
  var v=s/U[i][0];
  return (v>=100?Math.round(v):v>=10?v.toFixed(1):v.toFixed(2))+' '+U[i][1];
 }
 function sup(n){return String(n).replace(/\d/g,function(x){return '⁰¹²³⁴⁵⁶⁷⁸⁹'[x]});}
 function num(n){
- if(n<1e6)return Math.floor(n).toLocaleString('en-US');
+ if(n<1e6)return n.toLocaleString('en-US');
  var x=Math.floor(Math.log10(n)),m=n/Math.pow(10,x);
  if(m.toFixed(2)==='10.00'){m=1;x++;}
  return m.toFixed(2)+'×10'+sup(x);
 }
+var k=$('knob'),svg=k.ownerSVGElement;
 function draw(t){
- var s=Math.pow(10,e);
- $('knob').setAttribute('cx',X0+(X1-X0)*e/MAXE);
+ var s=Math.pow(10,e),sec=Number(el)/1e6;
+ if(e!==shownE){shownE=e;k.setAttribute('cx',X0+(X1-X0)*e/MAXE);
+  k.setAttribute('aria-valuenow',e.toFixed(2));k.setAttribute('aria-valuetext',dur(s)+' per second');}
  $('read').textContent=dur(s)+' / s';
- $('el').textContent=dur(el);
+ $('el').textContent=dur(sec);
  $('note').textContent=t<note?'Black dwarf. Time reset.':'';
  for(var i=0;i<3;i++){
-  var blurred=s/P[i]>LIM,life=el>=L[i];
+  var blurred=s/P[i]>LIM,life=el>=Lm[i];
   b[i].style.display=blurred?'':'none';
   d[i].style.display=blurred?'none':'';
-  if(!blurred){var a=ph[i]*2*Math.PI-Math.PI/2;
+  if(!blurred){var a=Number(el%Pm[i])/Number(Pm[i])*2*Math.PI-Math.PI/2;
    d[i].setAttribute('cx',CX[i]+R*Math.cos(a));d[i].setAttribute('cy',CY+R*Math.sin(a));}
-  c[i].textContent=num(life?el/L[i]:el/P[i]);
-  l[i].textContent=life?'lifetimes':'cycles';
+  c[i].textContent=num(Number(life?el/Lm[i]:el/Pm[i]));
+  l[i].textContent=life?(el/Lm[i]===1n?'lifetime':'lifetimes'):'cycles';
  }
 }
 function tick(t){
  if(last!==null){
-  var dt=Math.min((t-last)/1000,0.1),s=Math.pow(10,e);
-  el+=dt*s;
-  for(var i=0;i<3;i++)if(s/P[i]<=LIM)ph[i]=(ph[i]+dt*s/P[i])%1;
-  if(el>=BD){el=0;ph=[0,0,0];note=t+2500;}
+  var dt=Math.min((t-last)/1000,0.1),x=dt*Math.pow(10,e)*1e6+rem,inc=Math.round(x);
+  rem=x<1e15?x-inc:0;
+  el+=BigInt(inc);
+  if(el>=BD){el=0n;rem=0;note=t+2500;}
  }
  last=t;draw(t);requestAnimationFrame(tick);
 }
 function set(ev){
- var r=svg.getBoundingClientRect(),x=(ev.clientX-r.left)*900/r.width;
+ var p=svg.createSVGPoint();p.x=ev.clientX;p.y=ev.clientY;
+ var x=p.matrixTransform(svg.getScreenCTM().inverse()).x;
  e=Math.max(0,Math.min(MAXE,(x-X0)/(X1-X0)*MAXE));
 }
-var k=$('knob'),svg=k.ownerSVGElement;
-k.addEventListener('pointerdown',function(ev){drag=true;k.setPointerCapture(ev.pointerId);});
-k.addEventListener('pointermove',function(ev){if(drag)set(ev);});
-k.addEventListener('pointerup',function(){drag=false;});
-svg.addEventListener('pointerdown',function(ev){if(ev.target!==k)set(ev);});
+var g=$('ctl');
+g.addEventListener('pointerdown',function(ev){drag=true;g.setPointerCapture(ev.pointerId);set(ev);});
+g.addEventListener('pointermove',function(ev){if(drag)set(ev);});
+g.addEventListener('pointerup',function(){drag=false;});
+g.addEventListener('pointercancel',function(){drag=false;});
 k.addEventListener('keydown',function(ev){
  if(ev.key==='ArrowRight'||ev.key==='ArrowUp')e=Math.min(MAXE,e+0.25);
  else if(ev.key==='ArrowLeft'||ev.key==='ArrowDown')e=Math.max(0,e-0.25);
