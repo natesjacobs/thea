@@ -1,68 +1,90 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="system-ui, sans-serif">
 <rect width="900" height="520" fill="#fff"/>
+<text x="450" y="58" text-anchor="middle" font-size="28" fill="#888">Elapsed <tspan id="el" fill="#111"></tspan></text>
+<text id="note" x="450" y="80" text-anchor="middle" font-size="13" fill="#888"></text>
 <g fill="none" stroke="#111" stroke-width="2">
 <circle cx="170" cy="190" r="100"/><circle cx="450" cy="190" r="100"/><circle cx="730" cy="190" r="100"/>
 </g>
-<g id="blur" fill="none" stroke="#888" stroke-width="14" opacity="0.4" visibility="hidden">
-<circle cx="170" cy="190" r="100" id="b0"/><circle cx="450" cy="190" r="100" id="b1"/><circle cx="730" cy="190" r="100" id="b2"/>
+<g fill="none" stroke="#888" stroke-width="14" opacity="0.4">
+<circle cx="170" cy="190" r="100" id="b0" style="display:none"/><circle cx="450" cy="190" r="100" id="b1" style="display:none"/><circle cx="730" cy="190" r="100" id="b2" style="display:none"/>
 </g>
 <g fill="#111"><circle id="d0" r="7"/><circle id="d1" r="7"/><circle id="d2" r="7"/></g>
-<g text-anchor="middle" fill="#111">
-<text x="170" y="330" font-size="18">First</text><text x="450" y="330" font-size="18">Second</text><text x="730" y="330" font-size="18">Third</text>
-<g fill="#888" font-size="14">
-<text x="170" y="352">1 second</text><text x="450" y="352">3 days</text><text x="730" y="352">1,000 years</text>
-</g></g>
+<g text-anchor="middle" font-size="12" fill="#888">
+<text x="170" y="148">cadence 1 s</text><text x="170" y="166">lifespan 10² yr</text>
+<text x="450" y="148">cadence 3 days</text><text x="450" y="166">lifespan 10⁶ yr</text>
+<text x="730" y="148">cadence 10³ yr</text><text x="730" y="166">lifespan 10⁹ yr</text>
+<text id="l0" x="170" y="226"></text><text id="l1" x="450" y="226"></text><text id="l2" x="730" y="226"></text>
+</g>
+<g text-anchor="middle" font-size="24" fill="#111">
+<text id="c0" x="170" y="205"></text><text id="c1" x="450" y="205"></text><text id="c2" x="730" y="205"></text>
+</g>
+<g text-anchor="middle" font-size="18" fill="#111">
+<text x="170" y="330">First Circle</text><text x="450" y="330">Second Circle</text><text x="730" y="330">Third Circle</text>
+</g>
 <text id="read" x="450" y="418" text-anchor="middle" font-size="18" fill="#111"></text>
 <line x1="150" y1="460" x2="750" y2="460" stroke="#888" stroke-width="3"/>
 <circle id="knob" cy="460" r="11" fill="#111" tabindex="0" style="cursor:pointer;touch-action:none"/>
 <text x="150" y="494" text-anchor="middle" font-size="12" fill="#888">1 s / s</text>
-<text x="750" y="494" text-anchor="middle" font-size="12" fill="#888">10¹² s / s</text>
+<text x="750" y="494" text-anchor="middle" font-size="12" fill="#888">10²² s / s</text>
 <script><![CDATA[
 (function(){
 var $=function(i){return document.getElementById(i)};
-var P=[1,3*86400,1000*31557600],CX=[170,450,730],CY=190,R=100,MAXE=12,LIM=15;
-var X0=150,X1=750,e=0,ph=[0,0,0],last=null,run=false,drag=false;
-var d=[$('d0'),$('d1'),$('d2')],b=[$('b0'),$('b1'),$('b2')];
-function fmt(s){
- var u=[[1,'s'],[60,'min'],[3600,'hr'],[86400,'day'],[31557600,'yr'],[31557600e3,'kyr']],i=0;
- while(i<u.length-1&&s>=u[i+1][0])i++;
- var v=s/u[i][0];return (v<10?v.toFixed(1):Math.round(v))+' '+u[i][1]+' / s';
+var Y=31557600,P=[1,3*86400,1000*Y],L=[100*Y,1e6*Y,1e9*Y],BD=1e15*Y;
+var CX=[170,450,730],CY=190,R=100,MAXE=22,LIM=15,X0=150,X1=750;
+var e=0,el=0,ph=[0,0,0],last=null,drag=false,note=0;
+var d=[$('d0'),$('d1'),$('d2')],b=[$('b0'),$('b1'),$('b2')],c=[$('c0'),$('c1'),$('c2')],l=[$('l0'),$('l1'),$('l2')];
+var U=[[1,'s'],[60,'min'],[3600,'h'],[86400,'d'],[Y,'y'],[Y*1e3,'ky'],[Y*1e6,'My'],[Y*1e9,'Gy'],[Y*1e12,'Ty'],[Y*1e15,'Py']];
+function dur(s){
+ var i=0;while(i<U.length-1&&s>=U[i+1][0])i++;
+ var v=s/U[i][0];
+ return (v>=100?Math.round(v):v>=10?v.toFixed(1):v.toFixed(2))+' '+U[i][1];
 }
-function draw(){
- var s=Math.pow(10,e),any=false;
+function sup(n){return String(n).replace(/\d/g,function(x){return '⁰¹²³⁴⁵⁶⁷⁸⁹'[x]});}
+function num(n){
+ if(n<1e6)return Math.floor(n).toLocaleString('en-US');
+ var x=Math.floor(Math.log10(n)),m=n/Math.pow(10,x);
+ if(m.toFixed(2)==='10.00'){m=1;x++;}
+ return m.toFixed(2)+'×10'+sup(x);
+}
+function draw(t){
+ var s=Math.pow(10,e);
  $('knob').setAttribute('cx',X0+(X1-X0)*e/MAXE);
- $('read').textContent=fmt(s);
+ $('read').textContent=dur(s)+' / s';
+ $('el').textContent=dur(el);
+ $('note').textContent=t<note?'Black dwarf. Time reset.':'';
  for(var i=0;i<3;i++){
-  var blurred=s/P[i]>LIM;
+  var blurred=s/P[i]>LIM,life=el>=L[i];
   b[i].style.display=blurred?'':'none';
   d[i].style.display=blurred?'none':'';
-  if(!blurred){any=true;var a=ph[i]*2*Math.PI-Math.PI/2;
+  if(!blurred){var a=ph[i]*2*Math.PI-Math.PI/2;
    d[i].setAttribute('cx',CX[i]+R*Math.cos(a));d[i].setAttribute('cy',CY+R*Math.sin(a));}
+  c[i].textContent=num(life?el/L[i]:el/P[i]);
+  l[i].textContent=life?'lifetimes':'cycles';
  }
- $('blur').setAttribute('visibility','visible');
- return any;
 }
 function tick(t){
- if(last!==null){var dt=(t-last)/1000,s=Math.pow(10,e);
-  for(var i=0;i<3;i++)if(s/P[i]<=LIM)ph[i]=(ph[i]+dt*s/P[i])%1;}
- last=t;
- if(draw())requestAnimationFrame(tick);else{run=false;last=null;}
+ if(last!==null){
+  var dt=Math.min((t-last)/1000,0.1),s=Math.pow(10,e);
+  el+=dt*s;
+  for(var i=0;i<3;i++)if(s/P[i]<=LIM)ph[i]=(ph[i]+dt*s/P[i])%1;
+  if(el>=BD){el=0;ph=[0,0,0];note=t+2500;}
+ }
+ last=t;draw(t);requestAnimationFrame(tick);
 }
-function go(){if(!run){run=true;last=null;requestAnimationFrame(tick);}}
 function set(ev){
- var r=$('knob').ownerSVGElement.getBoundingClientRect(),x=(ev.clientX-r.left)*900/r.width;
- e=Math.max(0,Math.min(MAXE,(x-X0)/(X1-X0)*MAXE));go();
+ var r=svg.getBoundingClientRect(),x=(ev.clientX-r.left)*900/r.width;
+ e=Math.max(0,Math.min(MAXE,(x-X0)/(X1-X0)*MAXE));
 }
 var k=$('knob'),svg=k.ownerSVGElement;
 k.addEventListener('pointerdown',function(ev){drag=true;k.setPointerCapture(ev.pointerId);});
 k.addEventListener('pointermove',function(ev){if(drag)set(ev);});
 k.addEventListener('pointerup',function(){drag=false;});
-svg.addEventListener('pointerdown',function(ev){if(ev.target!==k){set(ev);}});
+svg.addEventListener('pointerdown',function(ev){if(ev.target!==k)set(ev);});
 k.addEventListener('keydown',function(ev){
  if(ev.key==='ArrowRight'||ev.key==='ArrowUp')e=Math.min(MAXE,e+0.25);
- else if(ev.key==='ArrowLeft'||ev.key==='ArrowDown')e=Math.max(0,e-0.25);else return;go();
+ else if(ev.key==='ArrowLeft'||ev.key==='ArrowDown')e=Math.max(0,e-0.25);
 });
-draw();go();
+draw(0);requestAnimationFrame(tick);
 })();
 ]]></script>
 </svg>
