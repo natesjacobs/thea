@@ -1,0 +1,12 @@
+offset,event,confidence,notes
+-210 Myr,Helium flash at the RGB tip,Firm,"../239522185767225600"
+-110 Myr,Core helium exhausted; AGB ascent begins,Firm,"Degenerate C-O core with H and He shells burning above it."
+-20 Myr,"AGB tip: ~3000 L-sun, brighter than the RGB tip",Firm,"Reached in ~20 Myr rather than 0.6 Gyr. Hotter than the RGB tip (~3000 K) so physically smaller, ~200 R-sun."
+-1 Myr,Thermal pulses; unstable He-shell ignition,Firm,"Each pulse a few hundred years. Dredge-up carries carbon, nitrogen and s-process elements to the surface."
+-100 kyr,Superwind: mass loss at 10^-5 to 10^-4 solar masses per year,Firm,"Whether the Sun becomes a carbon star (C/O > 1) is at the edge of models. Sackmann et al. 1993."
+0,Envelope ejected; core exposed,Firm,"Above 100,000 K, Earth-sized, several thousand L-sun almost entirely in the UV."
++100 yr,Shell ionizes and lights up,Firm,"Oxygen, nitrogen and hydrogen emission lines. Shells within shells, structured by the thermal pulses that drove them off."
++10 kyr,Nebula thins past visibility and disperses,Firm,"Carries dredged-up carbon, nitrogen and metals into the interstellar medium."
++10 kyr,"White dwarf at peak output: ~15 L-sun, ~0.5 solar masses",Firm,"~5% of today's sunlight in the visible; the rest extreme UV. 25 arcseconds across. Anything once at 1 AU is now near 2 AU."
++1 Gyr,Cooling well underway; surviving outer planets frozen,Firm,
++3 Gyr,Core crystallizes; latent heat briefly stalls cooling,Firm,"Oxygen crystallizes first and sinks, carbon floats. Confirmed by Gaia as a pile-up in the cooling sequence (Tremblay et al. 2019)."

@@ -1,0 +1,10 @@
+offset,event,confidence,notes
+-500 Myr,Moist greenhouse onset (3-D cloud models),Model-dependent,"Wolf & Toon 2015. Stratosphere loads with water vapor; UV photodissociation begins. 1-D models put this ~1 Gyr earlier."
+-150 Myr,Land sterile; ocean-only biosphere,Speculative,"../58381561767225600"
+-100 Myr,Sea level falling; seas turn hypersaline,Moderate,"Evaporation outpaces resupply."
+-50 Myr,Vast evaporite beds form across exposed ocean floor,Moderate,"Halite and gypsum. The geological signature of a drying planet."
+-10 Myr,Last standing water is dense brine,Moderate,"Thermohalophile habitat. Analogous to present hypersaline and vent communities."
+0,Surface water gone,Model-dependent,"Onset spans 0.65-2 Gyr across models. This anchor takes the late end, where cloud albedo buys maximum reprieve."
++1 Myr,"Venus conditions: thick CO2 atmosphere, no oceans",Firm,"Sun ~18% brighter than today. Crust baking. In a true runaway, surface can reach 1500-1600 K."
++100 Myr,Deep subsurface microbes persist below the 122 C isotherm,Moderate,"Takai et al. 2008 record, Methanopyrus kandleri at 20 MPa."
++500 Myr,Last habitable depth window closes; biosphere ends,Moderate,"O'Malley-James: detectable biosignatures end 2.0-2.8 Gyr absolute."

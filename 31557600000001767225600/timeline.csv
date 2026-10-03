@@ -1,0 +1,11 @@
+offset,event,confidence,notes
+-10^15 yr,Sun becomes a white dwarf,Firm,"Everything in ../timeline.csv happens inside the first 0.000001% of this interval."
+-10^15 yr,Milky Way-Andromeda merger,Newly uncertain,"Sawala et al. 2025 near 50% within 10 Gyr; Wu et al. 2026 revise to ~90%, median 6.5 Gyr."
+-10^14 yr,Star formation ends; galactic gas exhausted,Theoretical,"Adams & Laughlin 1997."
+-10^13 yr,Last red dwarfs burn out,Theoretical,"The longest-lived stars. After this nothing shines."
+-10^12 yr,Remnant-dominated galaxy: white dwarfs; neutron stars; black holes,Theoretical,"Still gravitationally bound and turning. Dark."
+0,Sun's remnant reaches thermal equilibrium; a black dwarf,Firm (theory),"Crystallized carbon and oxygen, Earth-sized, a few kelvin, held up by electron degeneracy alone. None exist yet; the universe is ~70000x too young."
++10^20 yr,Galaxies evaporate via stellar scattering,Theoretical,"Random encounters trade energy until most remnants are flung into intergalactic space and the rest spiral into the central black hole."
++10^34 to 10^43 yr,Proton decay sublimes the remnant,Theoretical,"Never observed. During this era a black dwarf radiates ~400 W. A galaxy of them would be dimmer than one hydrogen-burning star."
++10^40 to 10^100 yr,Black hole era; Hawking evaporation,Theoretical,
++10^100 yr,Dark era: low-energy photons and leptons only,Theoretical,

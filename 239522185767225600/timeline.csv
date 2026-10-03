@@ -1,0 +1,13 @@
+offset,event,confidence,notes
+-2.59 Gyr,Core hydrogen exhausted; Sun leaves the main sequence,Firm,"5 Gyr absolute. Fusion moves to a shell around an inert helium core."
+-600 Myr,RGB ascent begins; envelope inflates as the H shell burns,Firm,"Core contracts under electron degeneracy. Pressure there no longer depends on temperature."
+-100 Myr,Mercury engulfed,Firm,"Planets drifting outward as the Sun sheds mass, but not fast enough."
+-10 Myr,Venus engulfed; Sun approaching 1 AU in radius,Firm,
+-1 Myr,"Sun near maximum extent: 2730 L-sun, 256 R-sun, 2600 K",Firm,"Schroder & Smith 2008. Largest the Sun ever gets. The AGB will be brighter but hotter and therefore smaller (~200 R-sun)."
+-1 kyr,Earth engulfed (if engulfed at all),Contested,"Race between mass-loss orbital expansion and tidal drag. Schroder & Smith say engulfed; Nordhaus 2010 says survives. An engulfed Earth spirals to the core and is destroyed in ~3000 yr."
+0,Core reaches 10^8 K; triple-alpha ignites,Firm,"Helium flash. Three He-4 to C-12."
++1 s,Runaway: no thermostat in degenerate gas,Firm,"Pressure is set by electron degeneracy, not temperature, so heating causes no expansion. Triple-alpha rate scales as ~T^40."
++100 s,"Peak output ~10^11 L-sun, comparable to a galaxy",Firm,"Entirely absorbed by the overlying envelope. Nothing escapes. The most violent event in the Sun's life is invisible from outside."
++1 hr,Degeneracy lifted; core expands and cools; thermostat resumes,Firm,
++10 kyr,"Star has shrunk and dimmed to a few tens of L-sun",Firm,"From outside, the flash looks like relief."
++100 Myr,Horizontal branch: quiet core helium burning throughout,Firm,"The reprieve, arriving after everything inside 1.2 AU is already destroyed."

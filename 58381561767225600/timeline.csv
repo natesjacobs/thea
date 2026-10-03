@@ -1,0 +1,9 @@
+offset,event,confidence,notes
+-550 Myr,Nominal CO2 starvation endpoint passes,Model-dependent,"../41024881767225600. Land flora survives it only if CCM evolution keeps pace."
+-200 Myr,Mean surface temperature approaches 323 K,Moderate,"Functional ceiling for most plants. Growth fails before tissue does."
+-150 Myr,Land flora retreats to high latitudes and high altitude,Moderate,"Refugia are thermal, not chemical. The poles and mountains hold longest."
+-20 Myr,Lowland land biosphere gone; polar remnants only,Speculative,"Evolution-assumed scenario."
+0,Surface exceeds 338 K; absolute thermal ceiling for plant tissue,Moderate,"Graham et al. 2024 put this at 1.68-1.87 Gyr. No concentrating mechanism helps a denatured protein."
++1 Myr,Land is sterile. Ocean is the entire biosphere,Speculative,"Marine phototrophs persist on bicarbonate, which dominates dissolved inorganic carbon by ~2 orders of magnitude over dissolved CO2."
++50 Myr,Marine productivity concentrated at depth and high latitude,Moderate,"Water's thermal mass lags the air. Surface waters sterilize first."
++150 Myr,Moist greenhouse well underway; sea level falling,Model-dependent,"Hydrogen escape draining the oceans over hundreds of Myr."

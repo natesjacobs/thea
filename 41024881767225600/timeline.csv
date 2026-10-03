@@ -1,0 +1,9 @@
+offset,event,confidence,notes
+-650 Myr,CO2 falls below ~150 ppm; C3 photosynthesis fails,Model-dependent,"Caldeira & Kasting 1992. Most trees, wheat, rice. Graham et al. 2024 revise the floor to 2.9 ppm, which alone shows these are parameters not constants."
+-500 Myr,C4 grasses and relatives dominate what remains of land flora,Moderate,"CO2-concentrating mechanisms become the only viable strategy."
+-300 Myr,Selection pressure for better CCMs intensifies,Speculative,"C4 evolved 66+ times under exactly this pressure. Proto-Kranz and C2 intermediates are the known path."
+-220 Myr,Atmospheric oxygen collapses; ozone lost,Fairly firm,"Ozaki & Reinhard 2021: 1.08 +/- 0.14 Gyr absolute, over ~10000 yr. Precedes this anchor."
+-100 Myr,Unshielded UV at the surface; land flora under compound stress,Moderate,"No ozone. Heat, anoxia, carbon scarcity simultaneously."
+0,CO2 crosses the ~10 ppm C4 threshold,Model-dependent,"Nominal end of land primary production. Caldeira & Kasting bracket the range at 0.9-1.5 Gyr; Graham et al. put the strong-weathering endpoint at 1.35 Gyr."
++50 Myr,Standard models: land is biologically sterile,Model-dependent,"These models hold photosynthetic biology fixed at present-day parameters."
++550 Myr,Evolution-assumed models: land persists to the thermal ceiling instead,Speculative,"See ../58381561767225600. The binding constraint shifts from carbon to heat."
