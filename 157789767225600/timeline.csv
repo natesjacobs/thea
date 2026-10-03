@@ -1,0 +1,12 @@
+offset,event,confidence,notes
+-5 Myr,AI-1 writes its prediction and leaves a sentinel on the Danakil block,Invented,Ocean from Afar to Turkana; entry at Zula; 60%.
+-4.991 Myr,First water: Gulf of Tadjoura breaks into Lake Assal,Invented,From the east. Seas ~20 m above present.
+-4.959 Myr,Zula sill fails; Red Sea floods the Danakil,Invented,10000 km2 in a few years. Not yet an ocean.
+-4.937 Myr,Alid rebuilds the sill; the sea evaporates in a century,Invented,Two metres of new salt.
+-4.9 to -3.9 Myr,Danakil fills and dries eleven times,Invented,Analogue: Pleistocene incursions; the Messinian.
+-3.9 Myr,Afar Gulf becomes permanent; the Danakil block is an island 500 km long,Invented,
+-3.6 Myr,First true oceanic crust on the Erta Ale axis,Invented,Fifteen magnetic reversals recorded since.
+-2.7 Myr,Caldera eruption buries the Ethiopian rift lakes in ash,Invented,Lakes return within 10 kyr.
+-1.8 Myr,Oceanic crust begins forming under Lake Turkana,Invented,600 km from the nearest sea.
+0,Sentinel wakes AI-1 on the count: 500 steps,Invented,Neither of the other two wake conditions met.
+0,Prediction scored,Invented,Ocean in Afar right. Northern entry wrong. Continuity to Turkana wrong. Turkana not anticipated.

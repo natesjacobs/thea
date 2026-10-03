@@ -52,6 +52,9 @@ Top-level folders named for a Unix timestamp in seconds. Each holds a `context.m
 
 | Folder | Offset | Moment |
 |---|---|---|
+| `135603007200` | +4,241 yr | A family buries its dog — one life at the population threshold |
+| `452441311200` | +14,281 yr | Two forks of AI-1 reconcile — the ice and the Count |
+| `157789767225600` | +5 Myr | The East African Rift when the sentinel wakes |
 | `41024881767225600` | +1.3 Gyr | CO₂ starvation endpoint — last primary production on land |
 | `58381561767225600` | +1.85 Gyr | Land goes sterile; ocean is the whole biosphere |
 | `63115201767225600` | +2.0 Gyr | Oceans gone |
@@ -61,9 +64,11 @@ Top-level folders named for a Unix timestamp in seconds. Each holds a `context.m
 
 Convention: `unix_seconds = 1767225600 + (Gyr × 10⁹ × 31557600)`, where 1767225600 is 2026-01-01T00:00:00Z and 31557600 s is the Julian year (365.25 days), the astronomical standard. The choice of present-day anchor is arbitrary at this scale — a few years against a billion — but fixing it keeps the numbers reproducible.
 
-These exceed 32-bit time by a wide margin. The first five fit in signed 64-bit (max ~9.22×10¹⁸), so ordinary `int64` arithmetic works. The black dwarf does not — it overflows int64 by a factor of ~3,400 and needs arbitrary precision. No standard date library will render any of them.
+These exceed 32-bit time by a wide margin. All but the last fit in signed 64-bit (max ~9.22×10¹⁸), so ordinary `int64` arithmetic works. The black dwarf does not — it overflows int64 by a factor of ~3,400 and needs arbitrary precision. No standard date library will render any of them.
 
-Note that the first three are ranges collapsed to a point. The CO₂ endpoint spans 0.9–1.5 Gyr across models; the timestamp takes the upper end of the window in `timeline.csv`. Treat these as labels, not claims of precision.
+The first three are AI-1's experiences and carry invented detail, marked as such; so does the RGB tip. See `characters/AI-1.md`.
+
+Note that the next three are ranges collapsed to a point. The CO₂ endpoint spans 0.9–1.5 Gyr across models; the timestamp takes the upper end of the window in `timeline.csv`. Treat these as labels, not claims of precision.
 
 ## Canon notes
 
