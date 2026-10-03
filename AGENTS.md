@@ -16,6 +16,7 @@ Thea — worldbuilding for a hard-SF fiction project. See `CONTEXT.md`.
 
 - `CONTEXT.md` — world, canon, and research state
 - `timeline.csv` — full solar system timeline
+- `characters/` — one file per character
 - `<unix-timestamp>/` — one folder per anchor moment, named for its
   Unix timestamp in seconds. Each holds `context.md` and a
   fine-resolution `timeline.csv`. See CONTEXT.md for the convention.
