@@ -2,13 +2,13 @@
 
 Standard operating modes for the temporal pacing of intelligence systems. Each circle is a pace. A system works in the circle that matches the timescale of what it is responsible for.
 
-Numbers use k, m, b and t for thousand, million, billion and trillion.
+Years scale as y, ky, my, by and ty (thousand, million, billion, trillion). Counts use k, m, b and t.
 
 | | Cadence | Lifespan | Cycles per lifetime |
 |---|---|---|---|
-| **First** | ~1 second | ~100 yr (a lifetime to a few hundred years) | ~1b |
-| **Second** | ~3 days | up to 1m yr | ~100m |
-| **Third** | 1k–100k yr | 1b–10b yr | 10k–1m |
+| **First** | ~1 second | ~100 y (a lifetime to a few hundred years) | ~1b |
+| **Second** | ~3 days | up to 1 my | ~100m |
+| **Third** | 1–100 ky | 1–10 by | 10k–1m |
 
 Cadence is the period of one cycle of thought or action.
 
@@ -27,11 +27,11 @@ Processes for existential persistence and preservation. Acts on the scale of spe
 ## Scaling
 
 - Cycles per lifetime fall with scale. Slower circles make fewer, weightier decisions.
-- Cadence steps are roughly even: ~260k from First to Second, ~120k from Second to Third (taking 1k yr).
+- Cadence steps are roughly even: ~260k from First to Second, ~120k from Second to Third (taking 1 ky).
 - Lifespan steps are ~10k (First to Second) and 1k–10k (Second to Third).
 
 ## Demo
 
-`three-circles.svg` shows one dot per circle, completing a lap each cadence (1 s, 3 days, 1k yr). The slider sets simulated time per real second. Past ~15 laps per second a dot cannot be followed. It stops and is drawn as a static blur ring.
+`three-circles.svg` shows one dot per circle, completing a lap each cadence (1 s, 3 days, 1 ky). The slider sets simulated time per real second. Past ~15 laps per second a dot cannot be followed. It stops and is drawn as two standing sine-wave bands bent around the circle. Bumps per circle rise with speed, and the bands turn in opposite directions.
 
-Each circle counts cycles from the shared elapsed time, then counts lifetimes once one lifespan has passed. At 1,000t yr (the black dwarf) time and counts reset.
+Each circle counts cycles from the shared elapsed time, then counts lifetimes once one lifespan has passed. At 1,000 ty (the black dwarf) time and counts reset.
