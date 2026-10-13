@@ -1,0 +1,25 @@
+offset,event,confidence,notes
+-70 Myr,First solids condense (CAIs),Firm,4567.3 Ma.
+-65 Myr,Gas disk gone; ~30-40 inner embryos begin stirring each other,Moderate,Theia among them near 1 AU. Inner-system origin per Hopp et al. 2025.
+-65 to -1 Myr,Theia and proto-Earth pass and repass; orbits narrow,Moderate,Last giant impact at 20-70 Myr after CAIs in most simulations. Co-orbital L4/L5 variant is speculative (Belbruno & Gott 2005).
+-1 day,Theia enters Earth's Hill sphere (~1.5 million km),Estimate,Accelerating from a few km/s.
+-1 hr,Theia ~4 degrees wide in Earth's sky at 50000 km,Estimate,
+-35 min,Theia crosses the Roche limit (~18500 km),Estimate,Too fast to break up. Both bodies bulge.
+0,Contact at ~45 degrees and ~9.5 km/s,Moderate,Theia ~0.13 Earth masses. Canonical geometry (Canup & Asphaug 2001; Denton et al. 2026).
++10 min,Contact zone vaporized; shocks of tens to hundreds of GPa cross both mantles,Moderate,Energy ~4-10 x 10^31 J. Peak temperatures above 10^4 K (estimate).
++1 hr,Theia's mantle smeared into an arm; its core ploughs into Earth's mantle,Moderate,
++5 hr,Debris torqued into orbit; part of Theia returns for a second hit,Moderate,In the hot-Theia case a 1.5-1.8 lunar-mass body separates intact (Denton et al. 2026).
++1 day,Theia's core merged with Earth's,Moderate,Explains the Moon's ~1-1.5% core.
++1 day,Earth spins in ~5 hr inside a rock-vapor atmosphere,Moderate,2-3 hr in high-angular-momentum models. Photosphere ~2000-2300 K.
++1 day,~2% of Earth's mass in Theia mantle reaches the lower mantle,Contested,Possible origin of the LLVPs (Yuan et al. 2023).
++months,~40% of the Moon's mass clumped outside the Roche limit,Model-dependent,Salmon & Canup 2012. Hours if immediate satellite; years to decades if synestia.
++100 yr,Moon assembled at 3-6 Earth radii,Model-dependent,~10 degrees across from Earth. Molten. Orbit ~10-15 hr (estimate).
++100 to +1000 yr,Earth-disk system cools and condenses,Moderate,Volatiles lost by slow leak into 98-99% saturated vapor (Nie & Dauphas 2019).
++1 kyr,Lunar magma ocean ~80% solid,Moderate,Olivine and pyroxene sink (Elkins-Tanton et al. 2011).
++1 kyr,Plagioclase floats; highland crust begins,Moderate,Final thickness 40-50 km. The Moon's glow fades.
++10 kyr to +1 Myr,Moon recedes past ~10-20 Earth radii,Estimate,Early tides ~3400x today's. Passes the evection resonance.
++70 Myr,Magma ocean near-solid; KREEP left between crust and mantle,Contested,Rb-Sr anorthosite ages.
++150 Myr,Tidal remelting resets lunar rock ages (~4.35 Ga),Contested,Nimmo et al. 2024.
++3 Gyr,Annular eclipses begin,Estimate,Far Moon becomes smaller than near Sun. Roughly 1-2 Gyr ago.
++4.5 Gyr,Present: Moon at 60 Earth radii; recedes 38.30 mm/yr,Firm,Sun/Moon size ratio ~400; distance ratio ~390.
++5.1 Gyr,Last total solar eclipse,Contested,~600 Myr from now (Vondrak). Range 250 Myr-1.2 Gyr. Meeus puts the very last at ~1.2 Gyr.

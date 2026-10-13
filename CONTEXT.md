@@ -52,6 +52,7 @@ Top-level folders named for a Unix timestamp in seconds. Each holds a `context.m
 
 | Folder | Offset | Moment |
 |---|---|---|
+| `-142009198232774400` | −4.50 Gyr | Theia impact — the Moon forms |
 | `135603007200` | +4,241 yr | A family buries its dog — one life at the population threshold |
 | `452441311200` | +14,281 yr | Two forks of AI-1 reconcile — the ice and the Count |
 | `157789767225600` | +5 Myr | The East African Rift when the sentinel wakes |
