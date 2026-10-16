@@ -1,16 +1,18 @@
 """Build earth.nc: one best-guess map of Earth every 5 Myr (0-1000 Ma), 25 Myr (1000-1800 Ma).
 
 Grid 0.25 deg. Per frame: land, elevation, annual/coldest/warmest-month surface temperature, class.
-  0-540 Ma: Scotese & Wright 2018 PaleoDEMs (land, elevation) + Li et al. 2022 CESM (temperature,
-            interpolated between 10 Myr runs, lapse-rate corrected to PaleoDEM elevation).
+  0-540 Ma: Scotese & Wright 2018 PaleoDEMs (land, elevation). Temperature is the equal-weight
+            mean of three climate models, each interpolated in time between its runs:
+            CESM (Li 2022, 10 Myr), FOAM (Pohl 2022, 20 Myr), HadCM3L (Valdes 2021, by stage).
+            CESM and FOAM are lapse-rate corrected to PaleoDEM elevation.
   >540 Ma:  Cao et al. 2024 plate model (land only). Climate unknown except Snowball
             intervals in sources/climate-notes.csv, which are fully frozen.
 Class: 0 ocean, 1 frozen ocean, 2 hot ocean, 3 land, 4 frozen land, 5 hot land,
        6 ocean (climate unknown), 7 land (climate unknown).
   Frozen = warmest month < 10 C (Koppen polar). Very hot = annual mean >= 30 C.
-Sources: sources/sources.md. Run: python build.py  (downloads ~1 GB into work/)
+Sources: sources/sources.md. Run: python build.py  (downloads ~2 GB into work/)
 """
-import csv, glob, os, re, sys, urllib.request, zipfile
+import csv, functools, glob, os, re, sys, urllib.request, zipfile
 import numpy as np, xarray as xr, netCDF4, pygplates
 from PIL import Image, ImageDraw
 from scipy.interpolate import RegularGridInterpolator
@@ -19,6 +21,8 @@ from plate_model_manager import PlateModelManager
 HERE = os.path.dirname(os.path.abspath(__file__))
 CESM_URL = 'https://ndownloader.figshare.com/files/35396138'
 DEM_URL = 'https://earthbyte.org/webdav/ftp/Data_Collections/Scotese_Wright_2018_PaleoDEM/paleoDEM_0.2Deg_grids.zip'
+FOAM_URL = 'https://zenodo.org/records/7220854/files/{a}ebP2_solCgough1981_EccN_pCO2FosterKr_atmos_slab.nc?download=1'
+HAD_URL = 'https://zenodo.org/records/8237751/files/scotese_02_tas.zip?download=1'
 S = 4
 LAT = 90 - (np.arange(180 * S) + 0.5) / S
 LON = -180 + (np.arange(360 * S) + 0.5) / S
@@ -63,17 +67,54 @@ def main(work):
         coast.add(pygplates.FeatureCollection(f))
     wrap = pygplates.DateLineWrapper()
 
-    def cesm_fields(t):
-        i = np.argsort(np.abs(cesm_age - t))[:2]
-        a0, a1 = cesm_age[i]
-        w = 1.0 if a0 == a1 else abs(t - a1) / abs(a1 - a0)
-        out = []
-        for s, ww in ((i[0], w), (i[1], 1 - w)):
-            T = cesm.T.isel(simulation=s).values
-            zc = np.maximum(cesm.PHIS.isel(simulation=s).values / 9.81, 0)
-            out.append([ww * regrid(cesm.lat.values, cesm.lon.values, x)
-                        for x in (T.mean(0), T.min(0), T.max(0), zc)])
-        return [a + b for a, b in zip(*out)]
+    # Each model: ages, and load(i) -> monthly surface temperature (12, lat, lon) in K,
+    # plus model surface height in m (None if not available) on its own grid.
+    def cesm_load(i):
+        return cesm.lat.values, cesm.lon.values, cesm.T.isel(simulation=i).values + 273.15, \
+            np.maximum(cesm.PHIS.isel(simulation=i).values / 9.81, 0)
+    foam_dir = os.path.join(work, 'foam'); os.makedirs(foam_dir, exist_ok=True)
+    foam_age = np.arange(0, 541, 20)
+    def foam_load(i):
+        a = foam_age[i]
+        f = xr.open_dataset(fetch(FOAM_URL.format(a=a), os.path.join(
+            foam_dir, f'{a}ebP2_solCgough1981_EccN_pCO2FosterKr_atmos_slab.nc')), decode_times=False)
+        return f.lat.values, f.lon.values, f.TS1.values, np.maximum(f.PHIS.values.mean(0) / 9.81, 0)
+    hz = fetch(HAD_URL, os.path.join(work, 'scotese_02_tas.zip'))
+    if not glob.glob(os.path.join(work, 'hadcm3l', '*.nc')):
+        with zipfile.ZipFile(hz) as z:
+            z.extractall(os.path.join(work, 'hadcm3l'))
+    had = {}
+    for f in glob.glob(os.path.join(work, 'hadcm3l', '**', '*_tas.nc'), recursive=True):
+        had.setdefault(float(re.search(r'_([\d.]+)Ma_', f).group(1)), []).append(f)
+    had_age = np.array(sorted(had))
+    def had_load(i):
+        T = np.mean([xr.open_dataset(f, decode_times=False).temp_mm_1_5m.values[:, 0]
+                     for f in had[had_age[i]]], axis=0)
+        lat = xr.open_dataset(had[had_age[i]][0], decode_times=False).latitude.values
+        o = np.argsort(lat)
+        lon = xr.open_dataset(had[had_age[i]][0], decode_times=False).longitude.values
+        return lat[o], lon, T[:, o], None
+    models = [(cesm_age, cesm_load), (foam_age, foam_load), (had_age, had_load)]
+
+    def fields(age, load):
+        @functools.lru_cache(maxsize=3)
+        def slice_(i):
+            lat, lon, T, z = load(i)
+            T = T - 273.15
+            return [regrid(lat, lon, x) for x in (T.mean(0), T.min(0), T.max(0))] + \
+                   [None if z is None else regrid(lat, lon, z)]
+        def at(t, elev):
+            i = np.argsort(np.abs(age - t))[:2]
+            a0, a1 = age[i]
+            w = 1.0 if a0 == a1 else abs(t - a1) / abs(a1 - a0)
+            out = 0
+            for j, ww in ((i[0], w), (i[1], 1 - w)):
+                tm, tc, tw, z = slice_(j)
+                corr = 0 if z is None else LAPSE * (np.maximum(elev, 0) - z)
+                out = out + ww * np.stack([tm - corr, tc - corr, tw - corr])
+            return out
+        return at
+    climate = [fields(a, l) for a, l in models]
 
     def cao_land(t):
         recon = []
@@ -113,13 +154,11 @@ def main(work):
             dz = xr.open_dataset(dems[age])
             elev = regrid(dz.lat.values, dz.lon.values, dz.z.values)
             land = elev > 0
-            tm, tc, tw, zc = cesm_fields(t)
-            corr = LAPSE * (np.maximum(elev, 0) - zc)
-            tm, tc, tw = tm - corr, tc - corr, tw - corr
+            tm, tc, tw = np.mean([c(t, elev) for c in climate], axis=0)
             zone = np.where(tw < 10, 1, np.where(tm >= 30, 2, 0))
             V['elev'][k] = np.round(elev)
             V['t_mean'][k], V['t_cold'][k], V['t_warm'][k] = tm, tc, tw
-            nc['source'][k] = 'Scotese PaleoDEM + CESM'
+            nc['source'][k] = 'Scotese PaleoDEM; CESM + FOAM + HadCM3L'
         else:
             land = cao_land(t)
             if snowball(t):
