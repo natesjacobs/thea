@@ -20,8 +20,9 @@ Thea — worldbuilding for a hard-SF fiction project. See `CONTEXT.md`.
 - `<unix-timestamp>/` — one folder per anchor moment, named for its
   Unix timestamp in seconds. Each holds `context.md` and a
   fine-resolution `timeline.csv`. See CONTEXT.md for the convention.
-- `earth/` — continental maps across time. `earth.csv` holds climate
-  keyframes; `build.py` renders 0.25° frames (0-1800 Ma). Frames live
-  in the `earth-frames` GitHub release, not in git.
+- `earth/` — Earth maps across time. `build.py` makes `earth.nc`
+  (0.25°, 0-1800 Ma: land, elevation, temperature, class) from the
+  sources in `sources.md`; `earth.csv` covers climate before 540 Ma.
+  Output lives in the `earth-frames` GitHub release, not in git.
 
 <!-- Add conventions here as they emerge. -->
