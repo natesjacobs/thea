@@ -3,8 +3,10 @@
 Grid 0.25 deg. Per frame: land, elevation, annual/coldest/warmest-month surface temperature, class.
   0-540 Ma: Scotese & Wright 2018 PaleoDEMs (land, elevation) + Li et al. 2022 CESM (temperature,
             interpolated between 10 Myr runs, lapse-rate corrected to PaleoDEM elevation).
-  >540 Ma:  Cao et al. 2024 plate model (land only) + sources/climate-bands.csv (no temperatures).
-Class: 0 ocean, 1 frozen ocean, 2 hot ocean, 3 land, 4 frozen land, 5 hot land.
+  >540 Ma:  Cao et al. 2024 plate model (land only). Climate unknown except Snowball
+            intervals in sources/climate-notes.csv, which are fully frozen.
+Class: 0 ocean, 1 frozen ocean, 2 hot ocean, 3 land, 4 frozen land, 5 hot land,
+       6 ocean (climate unknown), 7 land (climate unknown).
   Frozen = warmest month < 10 C (Koppen polar). Very hot = annual mean >= 30 C.
 Sources: sources/sources.md. Run: python build.py  (downloads ~1 GB into work/)
 """
@@ -21,7 +23,8 @@ S = 4
 LAT = 90 - (np.arange(180 * S) + 0.5) / S
 LON = -180 + (np.arange(360 * S) + 0.5) / S
 GLAT, GLON = np.meshgrid(LAT, LON, indexing='ij')
-PALETTE = [40, 70, 120, 200, 225, 240, 70, 120, 150, 150, 160, 110, 250, 250, 250, 200, 120, 60]
+PALETTE = [40, 70, 120, 200, 225, 240, 70, 120, 150, 150, 160, 110, 250, 250, 250, 200, 120, 60,
+           90, 95, 105, 165, 165, 160]
 LAPSE = 0.0065  # K/m, standard atmosphere
 
 def fetch(url, path):
@@ -39,19 +42,10 @@ def regrid(lat, lon, z, method='linear'):
     f = RegularGridInterpolator((lat, lon), z, method=method, bounds_error=False, fill_value=None)
     return f((GLAT, GLON % 360))
 
-def climate_rows():
-    with open(os.path.join(HERE, 'sources', 'climate-bands.csv')) as f:
-        return sorted(csv.DictReader(f), key=lambda r: -float(r['time_Ma']))
-
-def bands(t):
-    c = None
-    for r in climate_rows():
-        if float(r['time_Ma']) >= t:
-            c = r
-    a = np.abs(LAT)[:, None]
-    ice = np.where(LAT[:, None] > 0, a >= float(c['ice_n']), a >= float(c['ice_s']))
-    hot = a < float(c['hot'])
-    return np.broadcast_to(np.where(ice, 1, np.where(hot, 2, 0)), GLAT.shape)
+def snowball(t):
+    with open(os.path.join(HERE, 'sources', 'climate-notes.csv')) as f:
+        return any(r['state'] == 'Snowball' and float(r['end_Ma']) <= t <= float(r['start_Ma'])
+                   for r in csv.DictReader(f))
 
 def main(work):
     os.makedirs(work, exist_ok=True)
@@ -128,9 +122,13 @@ def main(work):
             nc['source'][k] = 'Scotese PaleoDEM + CESM'
         else:
             land = cao_land(t)
-            zone = bands(t)
-            nc['source'][k] = 'Cao 2024 + climate-bands.csv'
-        cls = (land * 3 + zone).astype(np.uint8)
+            if snowball(t):
+                zone = 1
+                nc['source'][k] = 'Cao 2024; Snowball Earth'
+            else:
+                zone = None
+                nc['source'][k] = 'Cao 2024; climate unknown'
+        cls = (land * 3 + zone if zone is not None else 6 + land).astype(np.uint8)
         V['class'][k] = cls
         im = Image.fromarray(cls, 'P'); im.putpalette(PALETTE)
         im.save(os.path.join(work, 'png', f'{t:04d}.png'), optimize=True)
