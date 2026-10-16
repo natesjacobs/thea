@@ -23,6 +23,7 @@ Thea — worldbuilding for a hard-SF fiction project. See `CONTEXT.md`.
 - `earth/` — Earth maps across time. `build.py` makes `earth.nc`
   (0.25°, 0-1800 Ma: land, elevation, temperature, class). Inputs and
   citations in `earth/sources/`; downloads and output in `earth/work/`
-  (gitignored). Output lives in the `earth-frames` GitHub release.
+  (gitignored). GitHub Actions (`.github/workflows/earth.yml`) rebuilds
+  and publishes the `earth-frames` release when build.py or sources change.
 
 <!-- Add conventions here as they emerge. -->

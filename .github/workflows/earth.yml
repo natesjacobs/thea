@@ -1,0 +1,26 @@
+name: Build earth frames
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['earth/build.py', 'earth/sources/**']
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pygplates plate-model-manager xarray netCDF4 scipy pillow numpy
+      - run: python earth/build.py
+      - run: cd earth/work && zip -q -j earth-frames.zip earth.nc && cd png && zip -q -r ../earth-frames.zip .
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view earth-frames || gh release create earth-frames --title "Earth frames" \
+            --notes "Built by earth/build.py. See earth/sources/sources.md."
+          gh release upload earth-frames earth/work/earth-frames.zip --clobber
