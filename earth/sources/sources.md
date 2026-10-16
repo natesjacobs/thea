@@ -8,6 +8,7 @@ All sources used in `earth/`. Data sets are CC BY 4.0.
 - Li, X., Hu, Y., et al. (2022). A high-resolution climate simulation dataset for the past 540 million years. *Scientific Data*. CESM1.2.2, 10 Myr. https://doi.org/10.1038/s41597-022-01490-4 — data https://doi.org/10.6084/m9.figshare.19920662.v1
 - Pohl, A. (2022). Phanerozoic global climatic fields simulated using the mixed-layer general circulation model FOAM. 20 Myr. https://doi.org/10.5281/zenodo.7220854
 - Valdes, P.J., et al. (2021). Deep ocean temperatures through time. *Climate of the Past* 17, 1483–1506. HadCM3L, stage-level, `scotese_02` runs as packaged in Judd, E.J., et al. (2023), PhanDA HadCM3L Model Priors. https://doi.org/10.5281/zenodo.8237751
+- Farnsworth, A., et al. (2023). Climate extremes likely to drive land mammal extinction during next supercontinent assembly. *Nature Geoscience* 16, 901–908. HadCM3L run `teurh` (2× CO2, +2.5% solar) from the BRIDGE archive, https://www.paleo.bristol.ac.uk/ummodel/scripts/papers/Farnsworth_PU_etal_2023.html. Used for Pangaea Proxima (+250 Myr); 3.75° × 2.5° grid.
 - Cao, X., et al. (2024). Earth's tectonic and plate boundary evolution over 1.8 billion years. *Geoscience Frontiers* 15, 101922. Via GPlates Plate Model Manager (`cao2024`).
 
 ## Cited in climate-notes.csv
@@ -26,3 +27,5 @@ All sources used in `earth/`. Data sets are CC BY 4.0.
 - Temperature 0–540 Ma: equal-weight mean of CESM, FOAM and HadCM3L, each interpolated in time between its runs.
 - CESM and FOAM temperatures matched to PaleoDEM elevation with the standard lapse rate (6.5 K/km). HadCM3L files carry no orography, so no correction.
 - Before 540 Ma, climate is unknown except Snowball intervals, mapped as fully frozen.
+- Whole-planet state frames (magma ocean, ocean world, Huronian Snowball, dry hot planet, red giant) show one uniform condition. The ocean-world islands are random placeholders, not reconstructions.
+- Pangaea Proxima is one of several next-supercontinent scenarios, chosen because it has public climate-model output.

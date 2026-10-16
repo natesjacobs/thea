@@ -21,7 +21,8 @@ Thea — worldbuilding for a hard-SF fiction project. See `CONTEXT.md`.
   Unix timestamp in seconds. Each holds `context.md` and a
   fine-resolution `timeline.csv`. See CONTEXT.md for the convention.
 - `earth/` — Earth maps across time. `build.py` makes `earth.nc`
-  (0.25°, 0-1800 Ma: land, elevation, temperature, class). Inputs and
+  (0.25°, 0-1800 Ma plus whole-planet state frames and Pangaea Proxima
+  at +250 Myr; `frames.csv` maps state frames to time windows). Inputs and
   citations in `earth/sources/`; downloads and output in `earth/work/`
   (gitignored). GitHub Actions (`.github/workflows/earth.yml`) rebuilds
   and publishes the `earth-frames` release when build.py or sources change.

@@ -7,8 +7,14 @@ Grid 0.25 deg. Per frame: land, elevation, annual/coldest/warmest-month surface 
             CESM and FOAM are lapse-rate corrected to PaleoDEM elevation.
   >540 Ma:  Cao et al. 2024 plate model (land only). Climate unknown except Snowball
             intervals in sources/climate-notes.csv, which are fully frozen.
+  State frames (whole-planet states, see STATES): magma ocean, Hadean ocean world with
+            placeholder volcanic islands (random, not real positions), Huronian Snowball,
+            Pangaea Proxima at +250 Myr (Farnsworth 2023 HadCM3L run teurh: 2x CO2, +2.5% Sun),
+            dry hot planet after ocean loss, red giant.
+            frames.csv lists each frame file with the time window it stands for.
 Class: 0 ocean, 1 frozen ocean, 2 hot ocean, 3 land, 4 frozen land, 5 hot land,
-       6 ocean (climate unknown), 7 land (climate unknown).
+       6 ocean (climate unknown), 7 land (climate unknown), 8 molten, 9 global ice
+       (geography unknown), 10 dry hot surface (no oceans).
   Frozen = warmest month < 10 C (Koppen polar). Very hot = annual mean >= 30 C.
 Sources: sources/sources.md. Run: python build.py  (downloads ~2 GB into work/)
 """
@@ -28,8 +34,16 @@ LAT = 90 - (np.arange(180 * S) + 0.5) / S
 LON = -180 + (np.arange(360 * S) + 0.5) / S
 GLAT, GLON = np.meshgrid(LAT, LON, indexing='ij')
 PALETTE = [40, 70, 120, 200, 225, 240, 70, 120, 150, 150, 160, 110, 250, 250, 250, 200, 120, 60,
-           90, 95, 105, 165, 165, 160]
+           90, 95, 105, 165, 165, 160, 230, 70, 20, 225, 235, 245, 190, 150, 110]
 LAPSE = 0.0065  # K/m, standard atmosphere
+PROX_URL = 'https://www.paleo.bristol.ac.uk/ummodel/data/teurh/'
+# file, time (Ma; negative = future), window start, window end, kind, label
+STATES = [('4500', 4500, 4510, 4400, 'molten', 'Magma ocean'),
+          ('4000', 4000, 4400, 2450, 'islands', 'Ocean world; islands are placeholders'),
+          ('2300', 2300, 2450, 2200, 'ice', 'Huronian Snowball; geography unknown'),
+          ('f0250', -250, -200, -300, 'proxima', 'Pangaea Proxima'),
+          ('f1500', -1500, -1000, -5000, 'dry', 'Oceans gone; geography unknown'),
+          ('f7000', -7000, -5000, -7600, 'molten', 'Red giant Sun; surface molten')]
 
 def fetch(url, path):
     if not os.path.exists(path):
@@ -131,7 +145,40 @@ def main(work):
                         d.polygon(pts, fill=1)
         return np.array(img, dtype=bool)
 
-    times = list(range(0, 1000, 5)) + list(range(1000, 1801, 25))
+    def proxima():
+        d = os.path.join(work, 'proxima'); os.makedirs(d, exist_ok=True)
+        months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
+        T = []
+        for mo in months:
+            f = xr.open_dataset(fetch(f'{PROX_URL}climate/teurha.pdcl{mo}.nc',
+                                      os.path.join(d, f'teurha.pdcl{mo}.nc')), decode_times=False)
+            T.append(f.temp_mm_1_5m.values[0, 0] - 273.15)
+        lat = f.latitude.values; lon = f.longitude.values; o = np.argsort(lat)
+        T = np.array(T)[:, o]
+        m = xr.open_dataset(fetch(f'{PROX_URL}inidata/teurh.qrparm.avmask.nc',
+                                  os.path.join(d, 'teurh.qrparm.avmask.nc')), decode_times=False)
+        ml, mo_ = m.latitude.values, np.argsort(m.latitude.values)
+        land = regrid(ml[mo_], m.longitude.values, m.lsm.values[mo_]) > 0.5
+        h = xr.open_dataset(fetch(f'{PROX_URL}inidata/teurh.qrparm.orog.nc',
+                                  os.path.join(d, 'teurh.qrparm.orog.nc')), decode_times=False)
+        hl = np.argsort(h.latitude.values)
+        elev = regrid(h.latitude.values[hl], h.longitude.values, h.ht.values[0, 0][hl])
+        tm, tc, tw = [regrid(lat[o], lon, x) for x in (T.mean(0), T.min(0), T.max(0))]
+        return land, np.where(land, elev, 0), tm, tc, tw
+
+    def islands():
+        rng = np.random.default_rng(4000)
+        land = np.zeros(GLAT.shape, bool)
+        for _ in range(60):
+            la, lo = np.degrees(np.arcsin(rng.uniform(-1, 1))), rng.uniform(-180, 180)
+            r = rng.uniform(0.3, 1.5)
+            dlon = (GLON - lo + 180) % 360 - 180
+            land |= (GLAT - la) ** 2 + (dlon * np.cos(np.radians(la))) ** 2 < r ** 2
+        return land
+
+    times = list(range(0, 1000, 5)) + list(range(1000, 1801, 25)) + [x[1] for x in STATES]
+    names = [f'{t:04d}' for t in times[:len(times) - len(STATES)]] + [x[0] for x in STATES]
+    kinds = {x[1]: x for x in STATES}
     nc = netCDF4.Dataset(os.path.join(work, 'earth.nc'), 'w')
     nc.title = 'Thea Earth frames'
     nc.createDimension('time', len(times)); nc.createDimension('lat', len(LAT)); nc.createDimension('lon', len(LON))
@@ -149,7 +196,21 @@ def main(work):
     os.makedirs(os.path.join(work, 'png'), exist_ok=True)
 
     for k, t in enumerate(times):
-        if t <= 540:
+        if k >= len(times) - len(STATES):
+            name, _, _, _, kind, label = kinds[t]
+            nc['source'][k] = label
+            if kind == 'proxima':
+                land, elev, tm, tc, tw = proxima()
+                V['elev'][k] = np.round(elev)
+                V['t_mean'][k], V['t_cold'][k], V['t_warm'][k] = tm, tc, tw
+                nc['source'][k] = 'Pangaea Proxima; Farnsworth 2023 HadCM3L (teurh)'
+                cls = (land * 3 + np.where(tw < 10, 1, np.where(tm >= 30, 2, 0))).astype(np.uint8)
+            else:
+                code = {'molten': 8, 'ice': 9, 'dry': 10}.get(kind)
+                cls = np.full(GLAT.shape, code if code else 6, np.uint8)
+                if kind == 'islands':
+                    cls[islands()] = 7
+        elif t <= 540:
             age = min(dems, key=lambda a: abs(a - t))
             dz = xr.open_dataset(dems[age])
             elev = regrid(dz.lat.values, dz.lon.values, dz.z.values)
@@ -167,12 +228,17 @@ def main(work):
             else:
                 zone = None
                 nc['source'][k] = 'Cao 2024; climate unknown'
-        cls = (land * 3 + zone if zone is not None else 6 + land).astype(np.uint8)
+        if k < len(times) - len(STATES):
+            cls = (land * 3 + zone if zone is not None else 6 + land).astype(np.uint8)
         V['class'][k] = cls
         im = Image.fromarray(cls, 'P'); im.putpalette(PALETTE)
-        im.save(os.path.join(work, 'png', f'{t:04d}.png'), optimize=True)
+        im.save(os.path.join(work, 'png', f'{names[k]}.png'), optimize=True)
         print(t, nc['source'][k])
     nc.close()
+    with open(os.path.join(work, 'png', 'frames.csv'), 'w', newline='') as f:
+        w = csv.writer(f); w.writerow(['file', 'time_Ma', 'start_Ma', 'end_Ma', 'label'])
+        for x in STATES:
+            w.writerow([x[0] + '.png', x[1], x[2], x[3], x[5]])
 
 if __name__ == '__main__':
     main(sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, 'work'))

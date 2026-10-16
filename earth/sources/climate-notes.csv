@@ -1,7 +1,7 @@
 start_Ma,end_Ma,state,notes
 4500,4400,Magma ocean,Surface molten for a few million years after the Moon-forming impact (Elkins-Tanton 2008).
-4400,2450,Uncertain,Liquid oceans by ~4.4 Ga (Jack Hills zircons; Wilde 2001). Sun ~25-30% dimmer; warmth from CO2 and methane. Whether early oceans were temperate or hot is debated.
-2450,2200,Snowball,Huronian glaciations. Ice reached low latitudes at least once (~2.4-2.2 Ga). Follows the Great Oxidation Event.
+4400,2450,Uncertain,Map shows an ocean world with placeholder islands; real positions unknown. Liquid oceans by ~4.4 Ga (Jack Hills zircons; Wilde 2001). Sun ~25-30% dimmer; warmth from CO2 and methane. Whether early oceans were temperate or hot is debated.
+2450,2200,Snowball,Huronian glaciations; map shows global ice with geography unknown. Ice reached low latitudes at least once (~2.4-2.2 Ga). Follows the Great Oxidation Event.
 2200,720,Nonglacial,Few or no glacial deposits for ~1.5 Gyr (the 'boring billion'). Probably little or no ice. Temperatures poorly constrained.
 717,660,Snowball,Sturtian glaciation. Ice to the equator (Hoffman 2017).
 660,650,Nonglacial,Cryogenian interglacial.
@@ -13,6 +13,7 @@ start_Ma,end_Ma,state,notes
 340,285,Icehouse,Late Paleozoic Ice Age. Ice sheets across southern Gondwana.
 285,34,Greenhouse,Little or no polar ice. Peaks at the end-Permian (~252 Ma; tropical seas ~40 C; Sun 2012) and the mid-Cretaceous and Early Eocene.
 34,0,Icehouse,Antarctic ice sheet from 34 Ma. Northern ice sheets from ~2.7 Ma.
--200,-300,Supercontinent,Next supercontinent in ~200-250 Myr; several scenarios. Models put much of its interior too hot for mammals (Farnsworth 2023).
+-200,-300,Supercontinent,Pangaea Proxima (Scotese; called Pangea Ultima in Farnsworth 2023). One of several competing scenarios; chosen here. Map from a HadCM3L run at 2x CO2 and a 2.5% brighter Sun. Much of the interior too hot for mammals (Farnsworth 2023).
 -1000,-1500,Moist greenhouse,Brightening Sun drives off the oceans. Timing estimates vary.
+-1500,-5000,Dry hot planet,Oceans gone. Surface hot and dry; plate tectonics likely slowed or stopped. Geography unknown.
 -5000,-7600,Red giant,Sun leaves the main sequence in ~5 Gyr and reaches the red giant tip at ~7.6 Gyr (Schroder & Smith 2008).
