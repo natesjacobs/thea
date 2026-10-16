@@ -3,10 +3,10 @@
 Grid 0.25 deg. Per frame: land, elevation, annual/coldest/warmest-month surface temperature, class.
   0-540 Ma: Scotese & Wright 2018 PaleoDEMs (land, elevation) + Li et al. 2022 CESM (temperature,
             interpolated between 10 Myr runs, lapse-rate corrected to PaleoDEM elevation).
-  >540 Ma:  Cao et al. 2024 plate model (land only) + earth.csv climate bands (no temperatures).
+  >540 Ma:  Cao et al. 2024 plate model (land only) + sources/climate-bands.csv (no temperatures).
 Class: 0 ocean, 1 frozen ocean, 2 hot ocean, 3 land, 4 frozen land, 5 hot land.
   Frozen = warmest month < 10 C (Koppen polar). Very hot = annual mean >= 30 C.
-See sources.md. Run: python build.py <workdir>   (downloads ~1 GB of sources)
+Sources: sources/sources.md. Run: python build.py  (downloads ~1 GB into work/)
 """
 import csv, glob, os, re, sys, urllib.request, zipfile
 import numpy as np, xarray as xr, netCDF4, pygplates
@@ -40,7 +40,7 @@ def regrid(lat, lon, z, method='linear'):
     return f((GLAT, GLON % 360))
 
 def climate_rows():
-    with open(os.path.join(HERE, 'earth.csv')) as f:
+    with open(os.path.join(HERE, 'sources', 'climate-bands.csv')) as f:
         return sorted(csv.DictReader(f), key=lambda r: -float(r['time_Ma']))
 
 def bands(t):
@@ -129,7 +129,7 @@ def main(work):
         else:
             land = cao_land(t)
             zone = bands(t)
-            nc['source'][k] = 'Cao 2024 + earth.csv'
+            nc['source'][k] = 'Cao 2024 + climate-bands.csv'
         cls = (land * 3 + zone).astype(np.uint8)
         V['class'][k] = cls
         im = Image.fromarray(cls, 'P'); im.putpalette(PALETTE)
@@ -138,4 +138,4 @@ def main(work):
     nc.close()
 
 if __name__ == '__main__':
-    main(sys.argv[1] if len(sys.argv) > 1 else 'work')
+    main(sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, 'work'))
