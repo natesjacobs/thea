@@ -40,8 +40,8 @@ In the co-orbital version, Theia sits at L4 for tens of Myr, is nudged into a ho
 
 - Theia enters Earth's Hill sphere, ~1.5 million km out, about one to two weeks before contact. *Estimate.*
 - It accelerates from a few km/s to ~9–10 km/s, the mutual escape speed.
-- An hour out, at ~33,000 km, it spans ~12° of Earth's sky, twenty-four full Moons. At contact it fills the sky. *Estimate.*
-- It crosses the Roche limit, ~18,500 km, about 30–40 minutes out. Too fast to break up. In the last minutes both bodies bulge toward each other by kilometres to tens of kilometres. *Estimate.*
+- An hour out, at ~30,000 km, it spans ~13° of Earth's sky, twenty-six full Moons. At contact it fills the sky. *Estimate.*
+- It crosses the Roche limit, ~18,500 km, about 25 minutes out. Too fast to break up. In the last minutes both bodies bulge toward each other by kilometres to tens of kilometres. *Estimate.*
 
 ### Impact
 
