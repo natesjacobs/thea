@@ -22,6 +22,7 @@ A giant impact is consensus. Which impact is not. Every model has to explain thr
 - Mass ~0.13 Earth masses. Radius ~3,500 km, about Mars. Differentiated: an iron core ~30% of its mass under an FeO-rich mantle.
 - Formed in the inner disk, near 1 AU. Inner-system origin is the current lead. A carbonaceous, outer-system Theia is contested.
 - **Speculative:** Belbruno & Gott 2005. Theia grew at Earth's L4 or L5 point, 60° ahead or behind in the same orbit, and later drifted out. That would explain both the shared composition and the low impact speed. It is not a standard simulation outcome.
+- **Proto-Earth spin (anchor choice).** Fast: a few to ~10 hr. Giant-impact simulations leave embryos near breakup spin with random axes (Kokubo & Genda 2010). Canonical runs assume none. This anchor tilts the axis well off Theia's approach, so spin and impact partly cancel and the system lands near today's L_EM without needing evection.
 
 ## The sequence
 
