@@ -75,7 +75,7 @@ How common:
 
 ### The last day
 
-One approach worked in detail, sky views and tides included: `scenario-1.md`.
+One approach worked in detail, sky views and tides included: `last-years-approach-1.md`.
 
 - Theia enters Earth's Hill sphere, ~1.4–1.5 million km out, one to two weeks before contact. *Estimate.*
 - It accelerates from a few km/s to ~9–10 km/s, the mutual escape speed.

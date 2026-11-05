@@ -1,4 +1,4 @@
-# Collision scenario 1
+# Last year's approach 1
 
 One modeled approach, worked out in detail. Not canon: the anchor's `context.md` and `timeline.csv` keep options open. Stories may lock it in.
 
