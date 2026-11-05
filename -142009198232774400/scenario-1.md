@@ -1,6 +1,8 @@
-# The last year's approach
+# Collision scenario 1
 
-The final year before impact, from one modeled run. This run is the working scenario. Other approach directions are possible, and they would change where each body sits in the other's sky. The general pattern would not change.
+One modeled approach, worked out in detail. Not canon: the anchor's `context.md` and `timeline.csv` keep options open. Stories may lock it in.
+
+Assumptions: the anchor's canonical impact (9.17 km/s at 45°), Theia on a neighbouring orbit slightly outside Earth's, one approach direction. Another direction changes where each body sits in the other's sky and the impact's local time. The general pattern holds.
 
 ## The run
 
@@ -17,43 +19,6 @@ The final year before impact, from one modeled run. This run is the working scen
 From the Sun the two orbits nearly overlap. This is what sharing a lane looks like.
 
 Inputs come from the papers cited in `context.md`. Everything computed from them here, including every brightness, is modeled, not published. Brightness assumes reflectivity 0.15 for Theia (rock) and 0.3 for Earth (cloud).
-
-## The two worlds a year out
-
-| | Proto-Earth | Theia |
-|---|---|---|
-| Mass | ~0.88 Earth masses | ~0.13 Earth masses |
-| Radius | ~6,150 km | ~3,500 km, about Mars |
-| Spin | Fast, a few to ~10 hr. Axis tilted well off Theia's approach (see `context.md`) | Unknown. Random, from its own earlier impacts |
-| Axial tilt | Large, set at random by earlier giant impacts | Unknown |
-| Interior | Core formed. Radioactive heating ~4× today's | Iron core ~30% of its mass under an FeO-rich mantle |
-| Surface | Probably solid. The magma ocean from the last giant impact froze within a few Myr. Dark basaltic crust, giant basins, volcanoes, steady planetesimal hits. No continents. No known plate tectonics; possibly heat-pipe volcanism. Steam and CO₂ atmosphere, perhaps some water oceans | Probably like early Mars: crust, volcanoes, a thin atmosphere. Lower gravity allows taller relief. If hot (Denton et al. 2026), interior near melting |
-
-All of the surface row is inference. The impact erased every record.
-
-The rest of the Solar System:
-- The Sun gives ~70% of today's light, spins fast, and is violently active, with X-rays ~100× today's or more.
-- Venus is mostly assembled. Mars has been finished for ~60 Myr.
-- The giant planets have formed and have probably already rearranged themselves.
-- The inner system is still full of leftover planetesimals.
-
-## Why it ends in collision
-
-1. **The gas disk goes.** For ~3–5 Myr, gas drag keeps orbits round and flat. Then it is gone and nothing damps the embryos' motion.
-2. **Tugs add up.** Neighbours pull on each other at every conjunction. Orbits grow eccentric. The time until orbits cross grows exponentially with spacing: thousands of years at a few Hill radii, millions to tens of millions at ~10 (Chambers et al. 1996).
-3. **Crossing orbits make each pass a dice roll.** Any one pass rarely hits. But gravity bends near-misses inward. At ~2 km/s closing speed against ~10 km/s escape speed, the target is ~25× its true size. Conjunctions come every few decades, and a hit is likely within 10–100 Myr.
-4. **The inner system can't throw planets away.** Ejecting a body takes a kick near orbital speed, ~30 km/s here. An Earth-sized planet can give ~11 km/s. That ratio, the Safronov number, is ~0.07 at 1 AU; below 1, close passes end in collisions, not ejections. So 30–40 embryos merged into four planets.
-5. **The co-orbital variant (speculative).** A body at L4 is stable. Kicks widen its swing into a horseshoe, and then into a chaotic path. That path delivers it at near-zero relative speed, which is what the canonical impact needs.
-
-Collision is not strictly certain. A body can be scattered into Venus or toward the Sun. For two massive neighbours at the same distance from the Sun it is the likely end.
-
-How common:
-- **Neighbours in near-identical orbits:** standard. Embryos settle 5–10 mutual Hill radii apart, a few hundredths of an AU.
-- **A true co-orbital pair:** rare. Co-orbitals form in migrating systems (Cresswell & Nelson 2006), but most don't survive. None is confirmed among exoplanets.
-- **Giant impacts:** routine. Each Earth-like planet takes several. The last typically comes at 20–70 Myr.
-- **A Moon-forming impact:** maybe 10–20% of last impacts. It needs the right mass ratio, near-escape speed, ~45° and late timing. The angle is the easy part.
-- **A same-composition impactor:** common. Roughly 20–40% of last impactors formed nearby with a similar composition (Mastrobuono-Battisti et al. 2015).
-- **A moon this large:** about 1 in 12 terrestrial planets, range 1 in 45 to 1 in 4 (Elser et al. 2011). Possibly only planets under ~1.6 Earth radii can make one (Nakajima et al. 2022).
 
 ## The closing distance
 
@@ -119,5 +84,37 @@ Earth was the inner planet. From Theia it behaved like Venus does for us.
 | Last 2 wk | High in the night sky, 126° then 146° from the Sun | 25′ to nearly 3° | mag −13 to −17 | 80 → 92% |
 
 The two views mirror each other. From Earth, Theia was a thin crescent beside the Sun, seen in daylight or at dusk. From Theia, Earth was a huge, nearly full disk at midnight, swelling night by night. Through a telescope: dark rock, the white of the steam atmosphere's clouds, and any open water.
+
+## The final weeks
+
+From the run, recomputed as a two-body hyperbola inside a day. Modeled, not published.
+
+| Before impact | Theia from Earth | Earth from Theia | Tide on Earth (× today's Moon) | Tide on Theia |
+|---|---|---|---|---|
+| 2 wk | 14′ | 25′ | 0.1 | 1 |
+| 1 wk | 24′ | 43′ | 0.6 | 5 |
+| ~5 d | 31′, one full Moon | 54′ | 1.3 | 11 |
+| 3 d | 45′ | 1.3° | 5 | 40 |
+| 1 d | 1.6° | 2.9° | 40 | 350 |
+| 12 hr | 2.7° | 4.7° | 180 | 1,500 |
+| 6 hr | 4.3° | 7.5° | 740 | 6,200 |
+| 1 hr | 13° | 23° | 23,000 | 190,000 |
+
+Thresholds, Theia from Earth:
+- **Brighter than any star:** already a year out.
+- **No longer a point:** 7–6 months out, ~1′.
+- **Clearly a disk:** ~2 months out. Half-lit, ~5′. The phase gives it away.
+- **Larger than the Moon:** ~5 days out.
+- **Growing while you watch:** ~2 hr out, against a roofline, half a Moon-width per 5 minutes. ~1 hr out, obvious from memory. Last ~15 min, minute to minute. Most of this fell inside the eclipse, a dark disk against the corona, faintly earthlit.
+
+From Theia every threshold came earlier.
+
+**The last normal day.** Both bodies were in free fall. The only felt signal was tides. The proto-Earth probably had no moon; its baseline tide was the Sun's.
+- **Earth, ~6 days out.** Theia's tide matches today's lunar tide.
+- 3 days out: several times today's. Coasts misbehave, if there were oceans.
+- 1 day out: ~40×, tens of metres in shallow basins.
+- 12 hr out: solid ground flexing tens of metres a cycle. Quakes and eruptions likely rise. *Estimate.*
+- Last hour: the bulge reaches kilometres.
+- **Theia, ~2 weeks out.** It felt ~8× Earth's tidal stress and broke from normal first.
 
 See `./context.md` and `./timeline.csv`.

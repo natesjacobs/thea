@@ -36,12 +36,51 @@ Theia and the proto-Earth pass and repass for tens of Myr. Each encounter alters
 
 In the co-orbital version, Theia sits at L4 for tens of Myr, is nudged into a horseshoe orbit, then a chaotic creeping one, then falls in at near zero energy.
 
+### The two worlds before impact
+
+| | Proto-Earth | Theia |
+|---|---|---|
+| Mass | ~0.88 Earth masses | ~0.13 Earth masses |
+| Radius | ~6,150 km | ~3,500 km, about Mars |
+| Spin | Fast, a few to ~10 hr. Axis tilted well off Theia's approach (anchor choice, above) | Unknown. Random, from its own earlier impacts |
+| Axial tilt | Large, set at random by earlier giant impacts | Unknown |
+| Interior | Core formed. Radioactive heating ~4× today's | Iron core ~30% of its mass under an FeO-rich mantle |
+| Surface | Probably solid. The magma ocean from the last giant impact froze within a few Myr. Dark basaltic crust, giant basins, volcanoes, steady planetesimal hits. No continents. No known plate tectonics; possibly heat-pipe volcanism. Steam and CO₂ atmosphere, perhaps some water oceans | Probably like early Mars: crust, volcanoes, a thin atmosphere. Lower gravity allows taller relief. If hot (Denton et al. 2026), interior near melting |
+
+All of the surface row is inference. The impact erased every record.
+
+The rest of the Solar System:
+- The Sun gives ~70% of today's light, spins fast, and is violently active, with X-rays ~100× today's or more.
+- Venus is mostly assembled. Mars has been finished for ~60 Myr.
+- The giant planets have formed and have probably already rearranged themselves.
+- The inner system is still full of leftover planetesimals.
+
+### Why neighbours collide
+
+1. **The gas disk goes.** For ~3–5 Myr, gas drag keeps orbits round and flat. Then it is gone and nothing damps the embryos' motion.
+2. **Tugs add up.** Neighbours pull on each other at every conjunction. Orbits grow eccentric. The time until orbits cross grows exponentially with spacing: thousands of years at a few Hill radii, millions to tens of millions at ~10 (Chambers et al. 1996).
+3. **Crossing orbits make each pass a dice roll.** Any one pass rarely hits. But gravity bends near-misses inward. At ~2 km/s closing speed against ~10 km/s escape speed, the target is ~25× its true size. Conjunctions come every few decades, and a hit is likely within 10–100 Myr.
+4. **The inner system can't throw planets away.** Ejecting a body takes a kick near orbital speed, ~30 km/s here. An Earth-sized planet can give ~11 km/s. That ratio, the Safronov number, is ~0.07 at 1 AU; below 1, close passes end in collisions, not ejections. So 30–40 embryos merged into four planets.
+5. **The co-orbital variant (speculative).** A body at L4 is stable. Kicks widen its swing into a horseshoe, and then into a chaotic path. That path delivers it at near-zero relative speed, which is what the canonical impact needs.
+
+Collision is not strictly certain. A body can be scattered into Venus or toward the Sun. For two massive neighbours at the same distance from the Sun it is the likely end.
+
+How common:
+- **Neighbours in near-identical orbits:** standard. Embryos settle 5–10 mutual Hill radii apart, a few hundredths of an AU.
+- **A true co-orbital pair:** rare. Co-orbitals form in migrating systems (Cresswell & Nelson 2006), but most don't survive. None is confirmed among exoplanets.
+- **Giant impacts:** routine. Each Earth-like planet takes several. The last typically comes at 20–70 Myr.
+- **A Moon-forming impact:** maybe 10–20% of last impacts. It needs the right mass ratio, near-escape speed, ~45° and late timing. The angle is the easy part.
+- **A same-composition impactor:** common. Roughly 20–40% of last impactors formed nearby with a similar composition (Mastrobuono-Battisti et al. 2015).
+- **A moon this large:** about 1 in 12 terrestrial planets, range 1 in 45 to 1 in 4 (Elser et al. 2011). Possibly only planets under ~1.6 Earth radii can make one (Nakajima et al. 2022).
+
 ### The last day
 
-- Theia enters Earth's Hill sphere, ~1.5 million km out, about one to two weeks before contact. *Estimate.*
+One approach worked in detail, sky views and tides included: `scenario-1.md`.
+
+- Theia enters Earth's Hill sphere, ~1.4–1.5 million km out, one to two weeks before contact. *Estimate.*
 - It accelerates from a few km/s to ~9–10 km/s, the mutual escape speed.
-- An hour out, at ~30,000 km, it spans ~13° of Earth's sky, twenty-six full Moons. At contact it fills the sky. *Estimate.*
-- It crosses the Roche limit, ~18,500 km, about 25 minutes out. Too fast to break up. In the last minutes both bodies bulge toward each other by kilometres to tens of kilometres. *Estimate.*
+- An hour out, at ~30,000–35,000 km, it spans ~12–13° of Earth's sky, about twenty-five full Moons. At contact it fills the sky. *Estimate.*
+- It crosses the Roche limit, ~18,500 km, about 25–35 minutes out. Too fast to break up. In the last minutes both bodies bulge toward each other by kilometres to tens of kilometres. *Estimate.*
 
 ### Impact
 
