@@ -1,5 +1,7 @@
 # -142009198232774400
 
+Chosen values and their status are in [`assumptions.md`](assumptions.md). Cite IDs there, not restated numbers.
+
 **−4.50 Gyr.** Theia strikes the proto-Earth. The Moon forms.
 
 About 70 Myr after the first solids. The date is contested, from ~4.51 to ~4.35 Ga. Recent work favors an old Moon and reads the ~4.35 Ga ages as a later remelting (Nimmo, Kleine & Morbidelli 2024). This anchor takes 4.50 Ga.
