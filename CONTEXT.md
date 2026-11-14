@@ -48,7 +48,7 @@ Three research passes completed so far.
 
 ## Anchor moments
 
-Top-level folders named for a Unix timestamp in seconds. Each holds a `context.md` and its own fine-resolution `timeline.csv` covering what happens just before, during, and after that moment.
+Top-level folders named for a Unix timestamp in seconds. Each holds a `context.md`, its own fine-resolution `timeline.csv` covering what happens just before, during, and after that moment, and an `assumptions.md` registering the values chosen for it.
 
 | Folder | Offset | Moment |
 |---|---|---|

@@ -86,7 +86,7 @@ One approach worked in detail, sky views and tides included: `last-years-approac
 
 ### Impact
 
-- **0 min.** Contact at ~45°, the most probable angle for any impact. ~9.5 km/s.
+- **0 min.** Contact at ~45°, the most probable angle for any impact. ~9.5 km/s (A-003).
 - **0–10 min.** Shock waves of tens to hundreds of GPa cross both mantles. Total energy ~4–10 × 10³¹ J, about ten billion Chicxulubs. *Estimate.* The contact zone vaporizes. The hottest material passes 10⁴ K. *Estimate.*
 - **10 min–1 hr.** Theia shears across Earth's face. Its mantle smears into a long arm. Its iron core, denser and more compact, ploughs into Earth's mantle.
 - **1–5 hr.** The arm wraps around the planet. Gravity from the distorted, spinning mass torques material into orbit. Part of Theia comes back and hits a second time. In the hot-Theia case, a coherent body separates and stays in orbit at ~5 hr.

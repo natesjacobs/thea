@@ -2,12 +2,12 @@
 
 One modeled approach, worked out in detail. Not canon: the anchor's `context.md` and `timeline.csv` keep options open. Stories may lock it in.
 
-Assumptions: the anchor's canonical impact (9.17 km/s at 45°), Theia on a neighbouring orbit slightly outside Earth's, one approach direction. Another direction changes where each body sits in the other's sky and the impact's local time. The general pattern holds.
+Assumptions: contact at 9.17 km/s and 45°, the slow end of A-003 in `assumptions.md` (anchor is 9.5 km/s, ~2.6 km/s far out), Theia on a neighbouring orbit slightly outside Earth's, one approach direction. Another direction changes where each body sits in the other's sky and the impact's local time. The general pattern holds.
 
 ## The run
 
 - Three bodies: the Sun, proto-Earth (0.88 Earth masses) and Theia (0.13). Point masses, one plane.
-- Started at contact and integrated backward one year. Contact is set to the canonical impact: 9.17 km/s at 45°, which means ~1 km/s of approach speed far out.
+- Started at contact and integrated backward one year. Contact is set to 9.17 km/s at 45°, which means ~1 km/s of approach speed far out.
 - Orbits one year out:
 
 | | Proto-Earth | Theia |

@@ -12,7 +12,12 @@ Thea — worldbuilding for a hard-SF fiction project. See `CONTEXT.md`.
 - Match the established prose style: spare, plain, short declarative sentences.
 - Don't pad. Don't editorialize.
 - Before giving any number for a time-point folder, read its `assumptions.md` and use the value registered there. If a value is missing, add an ID with its status. Don't invent one silently.
-- Status words in `assumptions.md`: `canon`, `provisional`, `open`, `speculative` (no value).
+- Status words in `assumptions.md`:
+  - `canon`: fixed for all stories.
+  - `provisional`: a value chosen with low or medium confidence. Usable; flag it.
+  - `open`: needs checking before any story relies on it.
+  - `speculative`: an idea with no value yet. Not used in canon.
+- Cite assumption IDs (e.g. A-003) instead of restating values. When a value changes, update every file in its "Depends on" column.
 
 ## Files
 

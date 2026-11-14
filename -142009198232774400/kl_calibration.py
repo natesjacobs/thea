@@ -13,7 +13,7 @@ L_EM = 3.5e41       # g cm^2 s^-1
 # Anchor values from context.md in this folder
 M_PE, R_PE = 0.88 * M_E, 6.15e8     # proto-Earth (6,150 km)
 M_TH, R_TH = 0.13 * M_E, 3.5e8      # Theia (3,500 km)
-V_CANON = 9.17e5                    # cm/s, canonical contact speed at 45 deg
+V_CANON = 9.5e5                     # cm/s, contact speed at 45 deg (A-003)
 
 
 def v_esc(m_t, r_t, m_p, r_p):
@@ -23,8 +23,9 @@ def v_esc(m_t, r_t, m_p, r_p):
 def v_cr_over_vesc(gamma, theta_deg):
     """Critical hit-and-run speed / v_esc.
 
-    Midpoints of the published 1:10 and 1:2 anchors (Agnor & Asphaug 2004,
-    as reported in Kokubo & Genda 2010), linear in mass ratio and angle.
+    Midpoints of the published 1:10 and 1:2 anchors (Genda, Kokubo & Ida
+    2012, ApJ 744, 137), linear in mass ratio and angle.
+    gamma = impactor/target (Genda). Canup uses impactor/total.
     Valid for 30-45 deg only.
       1:10 -> 30 deg 1.5-2.0, 45 deg 1.2-1.3
       1:2  -> 30 deg 1.4-1.5, 45 deg 1.1-1.2
@@ -38,7 +39,8 @@ def v_cr_over_vesc(gamma, theta_deg):
 
 
 def L_orb(m_t, r_t, m_p, r_p, v, theta_deg):
-    """Orbital angular momentum / L_EM. Assumes b = sin(theta). Target spin excluded."""
+    """Orbital angular momentum / L_EM. b = sin(theta), theta from the
+    surface normal (Canup 2008). Target spin excluded."""
     mu = m_t * m_p / (m_t + m_p)
     b = math.sin(math.radians(theta_deg))
     return mu * v * b * (r_t + r_p) / L_EM
@@ -55,7 +57,7 @@ def outcome(k, l):
     if l < 1:
         return "low L"
     if l <= 2:
-        return "moon window"
+        return "moon window*"
     return "high L, merge"
 
 
@@ -63,9 +65,9 @@ def main():
     ve = v_esc(M_PE, R_PE, M_TH, R_TH)
     print(f"Anchor v_esc = {ve / 1e5:.2f} km/s; gamma = {M_TH / M_PE:.3f}")
 
-    print("\nCanonical anchor and threshold cases")
+    print("\nAnchor and threshold cases")
     for label, v, th in [
-        ("canonical 45 deg", V_CANON, 45.0),
+        ("anchor 45 deg", V_CANON, 45.0),
         ("same speed 30 deg", V_CANON, 30.0),
     ]:
         k = K(M_PE, R_PE, M_TH, R_TH, v, th)
@@ -76,7 +78,7 @@ def main():
         l = L_orb(M_PE, R_PE, M_TH, R_TH, vc, th)
         print(f"  K = 1 at {th:.0f} deg: v = {vc / 1e5:.1f} km/s, L = {l:.2f}")
 
-    print("\nMonte Carlo: Theia 0.11-0.15 M_E, 30-45 deg, speed +/-10% of canonical")
+    print("\nMonte Carlo: Theia 0.11-0.15 M_E, 30-45 deg, speed +/-10% of anchor")
     rng = random.Random(42)
     n = 50000
     ks, ls, window = [], [], 0
@@ -89,15 +91,15 @@ def main():
         l = L_orb(M_PE, R_PE, m_th, r_th, v, th)
         ks.append(k)
         ls.append(l)
-        window += outcome(k, l) == "moon window"
+        window += outcome(k, l) == "moon window*"
     ks.sort()
     ls.sort()
     print(f"  K: p5 {ks[int(.05 * n)]:.2f}, median {ks[n // 2]:.2f}, p95 {ks[int(.95 * n)]:.2f}")
     print(f"  L: p5 {ls[int(.05 * n)]:.2f}, median {ls[n // 2]:.2f}, p95 {ls[int(.95 * n)]:.2f}")
-    print(f"  moon window fraction: {window / n:.2f}")
+    print(f"  moon window* fraction: {window / n:.2f}")
 
-    print("\nSweep: speed (v/v_esc) and angle, canonical Theia")
-    print("  v/v_esc  theta    K     L     outcome")
+    print("\nSweep: speed (v/v_esc) and angle, anchor Theia")
+    print("  v/v_esc  theta    K     L     outcome (* heuristic: orbital L only)")
     for th in (30.0, 35.0, 40.0, 45.0):
         for vr in (0.8, 1.0, 1.2, 1.4, 1.6):
             v = vr * ve
