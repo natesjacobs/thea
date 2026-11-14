@@ -79,10 +79,10 @@ How common:
 
 One approach worked in detail, sky views and tides included: `last-years-approach-1.md`.
 
-- Theia enters Earth's Hill sphere, ~1.4–1.5 million km out, one to two weeks before contact. *Estimate.*
-- It accelerates from a few km/s to ~9–10 km/s, the mutual escape speed.
+- Theia enters Earth's Hill sphere, ~1.43 million km out, ~6 days before contact. *Modeled* (`last-years-approach-1.md`).
+- It accelerates from ~2.7 km/s to 9.5 km/s, just above the mutual escape speed of 9.1 km/s (A-003).
 - An hour out, at ~30,000–35,000 km, it spans ~12–13° of Earth's sky, about twenty-five full Moons. At contact it fills the sky. *Estimate.*
-- It crosses the Roche limit, ~18,500 km, about 25–35 minutes out. Too fast to break up. In the last minutes both bodies bulge toward each other by kilometres to tens of kilometres. *Estimate.*
+- It crosses the Roche limit, ~18,500 km, about 23 minutes out. Too fast to break up. In the last minutes both bodies bulge toward each other by kilometres to tens of kilometres. *Estimate.*
 
 ### Impact
 
