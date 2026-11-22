@@ -30,11 +30,11 @@ The mapping to AI is speculation. Nothing below depends on it.
 
 Raised by Kemp in the episode. Leads only; each needs its own pass.
 
-- **Long gaps.** About 6,500 years from first cultivation to the first states. A-003. Kemp's figure of 3,000 years is not yet matched to endpoints. A-004.
+- **Long gaps.** About 3,000 years from farming to the first states, averaged across regions. A-003. Kemp states it as the lag from intensified agriculture to first states. Southwest Asia took longer: about 6,500 years from first cultivation. Ten regions developed intensive farming on their own; five produced states (Kemp, interview).
 - **A step backwards.** Early European farmers were shorter than their genes predict, by 3.82 cm against earlier foragers (Marciniak et al. 2022). Scott 2017 argues the same for labour and disease.
 - **Why do it, then.** Social reasons are one answer. Natufian foragers feasted on wild cattle and tortoises at a burial cave about 12,000 years ago, before any farming (Munro & Grosman 2010). Stored grain as a buffer against bad years is another. Not researched.
 - **Not a clean spread.** Farming reached southeast Europe 8,500 years ago. Regional populations then boomed and collapsed, repeatedly, between 8,000 and 4,000 years ago (Shennan et al. 2013). That study found no link to climate. Bevan et al. 2017 found one for Britain and Ireland. The first farming culture of central Europe, the LBK, ended in population collapse (Shennan 2009).
-- **States need more than farming.** Across regions, a thousand years' head start in farming predicts states only 300–400 years sooner (Borcan, Olsson & Putterman; citation incomplete).
+- **States need more than farming.** Among later states, a thousand years' head start in farming predicts a state only 317–430 years sooner (Borcan, Olsson & Putterman 2021).
 
 ## Sources
 
@@ -53,15 +53,16 @@ Raised by Kemp in the episode. Leads only; each needs its own pass.
 - Shennan S. 2009. Human Biology 81:339–355. doi:10.3378/027.081.0312
 - Bevan A. et al. 2017. PNAS 114:E10524–E10531. doi:10.1073/pnas.1709190114
 - Dee M. et al. 2013. Proc. R. Soc. A 469:20130395. doi:10.1098/rspa.2013.0395. Radiocarbon chronology for the Egyptian First Dynasty.
-- Borcan O., Olsson O., Putterman L. "Transition to agriculture and first state presence: a global analysis." ueaeprints.uea.ac.uk/id/eprint/80065. Journal not confirmed.
+- Borcan O., Olsson O., Putterman L. 2021. Explorations in Economic History 82:101404. doi:10.1016/j.eeh.2021.101404. Data: doi:10.3886/E140722V1
+- Kemp L., interview, *The Great Simplification* 194, Sept 2025. Transcript at thegreatsimplification.com. Source of the 3,000-year figure and the ten-and-five count (the latter via Population Balance podcast notes).
 - *The Ancients* (History Hit), "The Neolithic Revolution," Tristan Hughes with Luke Kemp, 22 Nov 2026. Prompted this folder. Introduction read; the rest known from Nate's notes.
 
 ## Open
 
 - Read *Goliath's Curse* and pull its bibliography on the first villages and states.
 - The other centers: China, Mesoamerica, the Andes, New Guinea, Africa. None researched.
-- First cities and states. Dates for Uruk and the Egyptian First Dynasty need a primary source before A-003 can be canon.
-- What Kemp counts from and to for his 3,000 years. A-004.
+- First cities and states. Dates for Uruk and the Egyptian First Dynasty still need a primary source.
+- The per-region lags behind A-003. The Borcan dataset is public; not pulled.
 - Health, labour, and inequality before and after farming. Not researched.
 - The AI mapping itself. Not written.
 
