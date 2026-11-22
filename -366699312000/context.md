@@ -12,7 +12,7 @@ The mapping to AI is speculation. Nothing below depends on it.
 
 ## Known
 
-- The Holocene begins 11,700 years before AD 2000, ±99 yr, by annual layer counting in the NGRIP ice core (Walker et al. 2009). Abrupt warming ends the Younger Dryas.
+- The Holocene begins 11,700 years before AD 2000, ±99 yr, by annual layer counting in the NGRIP ice core (Walker et al. 2009). Abrupt warming ends the Younger Dryas. The climate record is in `./climate.md`.
 - The southern Levant sequence, in calibrated years BP (before 1950): Final Natufian 12,500–11,700; PPNA 11,600–10,500; PPNB 10,500–8,400 including its final phase; Pottery Neolithic from 8,400 (Weiss & Zohary 2011). A-001.
 - Eight founder crops: einkorn, emmer, barley, lentil, pea, chickpea, bitter vetch, flax (Weiss & Zohary 2011).
 - Cultivation comes before domestication. Wild-type cereals are planted through the PPNA. Domesticated-type chaff reaches about 30% in the southern-central Levant at 10.7–10.2 ka, and passes 10% elsewhere only at 10.2–8.3 ka (Arranz-Otaegui et al. 2016).
@@ -22,9 +22,19 @@ The mapping to AI is speculation. Nothing below depends on it.
 
 ## Contested
 
-- Whether the warming at 11.7 ka caused the change or only coincided with it.
+- Whether the warming at 11.7 ka caused the change or only coincided with it. See `./climate.md`.
 - One core area or many. Zeder 2011 argues for many.
 - Whether farming made states, or dense grain-fed populations did. Kemp 2025 argues states grew from lootable resources, caged land, and monopolized weapons. Not yet read at source.
+
+## Patterns
+
+Raised by Kemp in the episode. Leads only; each needs its own pass.
+
+- **Long gaps.** About 6,500 years from first cultivation to the first states. A-003. Kemp's figure of 3,000 years is not yet matched to endpoints. A-004.
+- **A step backwards.** Early European farmers were shorter than their genes predict, by 3.82 cm against earlier foragers (Marciniak et al. 2022). Scott 2017 argues the same for labour and disease.
+- **Why do it, then.** Social reasons are one answer. Natufian foragers feasted on wild cattle and tortoises at a burial cave about 12,000 years ago, before any farming (Munro & Grosman 2010). Stored grain as a buffer against bad years is another. Not researched.
+- **Not a clean spread.** Farming reached southeast Europe 8,500 years ago. Regional populations then boomed and collapsed, repeatedly, between 8,000 and 4,000 years ago (Shennan et al. 2013). That study found no link to climate. Bevan et al. 2017 found one for Britain and Ireland. The first farming culture of central Europe, the LBK, ended in population collapse (Shennan 2009).
+- **States need more than farming.** Across regions, a thousand years' head start in farming predicts states only 300–400 years sooner (Borcan, Olsson & Putterman; citation incomplete).
 
 ## Sources
 
@@ -36,13 +46,22 @@ The mapping to AI is speculation. Nothing below depends on it.
 - Kemp L. 2025. *Goliath's Curse*. Knopf / Viking. Not retrieved.
 - Scheffer M. et al. 2023. PNAS 120:e2218834120. doi:10.1073/pnas.2218834120. Premodern states grow more fragile with age.
 - Kemp L. et al. 2022. PNAS 119:e2108146119. doi:10.1073/pnas.2108146119
-- *The Ancients* (History Hit), "The Neolithic Revolution," Tristan Hughes with Luke Kemp, 22 Nov 2026. Prompted this folder. Only the introduction has been read.
+- Scott J. 2017. *Against the Grain*. Yale. Not retrieved.
+- Marciniak S. et al. 2022. PNAS 119:e2106743119. doi:10.1073/pnas.2106743119
+- Munro N., Grosman L. 2010. PNAS 107:15362–15366. doi:10.1073/pnas.1001809107
+- Shennan S. et al. 2013. Nat. Commun. 4:2486. doi:10.1038/ncomms3486
+- Shennan S. 2009. Human Biology 81:339–355. doi:10.3378/027.081.0312
+- Bevan A. et al. 2017. PNAS 114:E10524–E10531. doi:10.1073/pnas.1709190114
+- Dee M. et al. 2013. Proc. R. Soc. A 469:20130395. doi:10.1098/rspa.2013.0395. Radiocarbon chronology for the Egyptian First Dynasty.
+- Borcan O., Olsson O., Putterman L. "Transition to agriculture and first state presence: a global analysis." ueaeprints.uea.ac.uk/id/eprint/80065. Journal not confirmed.
+- *The Ancients* (History Hit), "The Neolithic Revolution," Tristan Hughes with Luke Kemp, 22 Nov 2026. Prompted this folder. Introduction read; the rest known from Nate's notes.
 
 ## Open
 
 - Read *Goliath's Curse* and pull its bibliography on the first villages and states.
 - The other centers: China, Mesoamerica, the Andes, New Guinea, Africa. None researched.
-- First cities and states, about 6,000–5,000 years ago. Not researched.
+- First cities and states. Dates for Uruk and the Egyptian First Dynasty need a primary source before A-003 can be canon.
+- What Kemp counts from and to for his 3,000 years. A-004.
 - Health, labour, and inequality before and after farming. Not researched.
 - The AI mapping itself. Not written.
 
