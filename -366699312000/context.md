@@ -2,7 +2,7 @@
 
 **−11,676 years from now.** The Pre-Pottery Neolithic A begins in the Levant. People who gather wild cereals start to plant them.
 
-A label, not a date. The shift took thousands of years and happened separately in several regions. This folder holds only the Southwest Asian case so far.
+A label, not a date. The shift took thousands of years and happened separately in several regions. This folder holds the Southwest Asian case in depth. Five other regions are outlined in `./arcs.md`.
 
 ## Why this anchor
 
@@ -30,7 +30,7 @@ The mapping to AI is speculation. Nothing below depends on it.
 
 Raised by Kemp in the episode. Leads only; each needs its own pass.
 
-- **Long gaps.** About 3,000 years from farming to the first states, averaged across regions. A-003. Kemp states it as the lag from intensified agriculture to first states. Southwest Asia took longer: about 6,500 years from first cultivation. Ten regions developed intensive farming on their own; five produced states (Kemp, interview).
+- **Long gaps.** About 3,000 years from farming to the first states, averaged across regions. A-003. Kemp states it as the lag from intensified agriculture to first states. Southwest Asia took longer: about 6,500 years from first cultivation. Ten regions developed intensive farming on their own; five produced states (Kemp, interview). Six arcs are worked through in `./arcs.md`.
 - **A step backwards.** Early European farmers were shorter than their genes predict, by 3.82 cm against earlier foragers (Marciniak et al. 2022). Scott 2017 argues the same for labour and disease.
 - **Why do it, then.** Social reasons are one answer. Natufian foragers feasted on wild cattle and tortoises at a burial cave about 12,000 years ago, before any farming (Munro & Grosman 2010). Stored grain as a buffer against bad years is another. Not researched.
 - **Not a clean spread.** Farming reached southeast Europe 8,500 years ago. Regional populations then boomed and collapsed, repeatedly, between 8,000 and 4,000 years ago (Shennan et al. 2013). That study found no link to climate. Bevan et al. 2017 found one for Britain and Ireland. The first farming culture of central Europe, the LBK, ended in population collapse (Shennan 2009).
@@ -60,7 +60,7 @@ Raised by Kemp in the episode. Leads only; each needs its own pass.
 ## Open
 
 - Read *Goliath's Curse* and pull its bibliography on the first villages and states.
-- The other centers: China, Mesoamerica, the Andes, New Guinea, Africa. None researched.
+- The other centers are outlined in `./arcs.md`. Each needs its own pass.
 - First cities and states. Dates for Uruk and the Egyptian First Dynasty still need a primary source.
 - The per-region lags behind A-003. The Borcan dataset is public; not pulled.
 - Health, labour, and inequality before and after farming. Not researched.
