@@ -46,6 +46,8 @@ Three research passes completed so far.
 
 **3. Title clearance.** Titles can't be copyrighted in the US, so a same-title work isn't itself infringement. Trademark is the live concern — there's an existing children's book series and a 2015 video game named Thea. A subtitle or series framing would differentiate. Not legal advice; worth a real clearance check before commercial release.
 
+**4. Neolithic transition.** Started. Southwest Asia only. A case study in how a tool-using social species moves from a natural to a built environment, kept as background for how an AI civilization may begin and develop. Sources and open items in `-366699312000/context.md`.
+
 ## Anchor moments
 
 Top-level folders named for a Unix timestamp in seconds. Each holds a `context.md`, its own fine-resolution `timeline.csv` covering what happens just before, during, and after that moment, and an `assumptions.md` registering the values chosen for it.
@@ -53,6 +55,7 @@ Top-level folders named for a Unix timestamp in seconds. Each holds a `context.m
 | Folder | Offset | Moment |
 |---|---|---|
 | `-142009198232774400` | −4.50 Gyr | Theia impact — the Moon forms |
+| `-366699312000` | −11,676 yr | PPNA begins — first cultivation in the Levant; case study for the start of AI |
 | `135603007200` | +4,241 yr | A family buries its dog — one life at the population threshold |
 | `452441311200` | +14,281 yr | Two forks of AI-1 reconcile — the ice and the Count |
 | `157789767225600` | +5 Myr | The East African Rift when the sentinel wakes |
