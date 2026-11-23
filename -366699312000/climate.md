@@ -36,7 +36,7 @@ All three fit the timing. PPNA starts within about a century of the Holocene war
 
 ## Sources
 
-- Rasmussen S. et al. 2006. J. Geophys. Res. 111:D06102. GICC05 timescale.
+- Rasmussen S. et al. 2006. A new Greenland ice core chronology for the last glacial termination (GICC05). https://orbit.dtu.dk/en/publications/a-new-greenland-ice-core-chronology-for-the-last-glacial-terminat/
 - Walker M. et al. 2009. J. Quaternary Sci. 24:3–17. doi:10.1002/jqs.1227
 - Rasmussen S. et al. 2014. Quaternary Sci. Rev. 106:14–28. INTIMATE event stratigraphy. Not read.
 - Steffensen J. et al. 2008. Science 321:680–684. doi:10.1126/science.1157707
@@ -45,15 +45,14 @@ All three fit the timing. PPNA starts within about a century of the Holocene war
 - Monnin E. et al. 2001. Science 291:112–114. doi:10.1126/science.291.5501.112
 - Marcott S. et al. 2014. Nature 514:616–619. doi:10.1038/nature13799
 - Shakun J. et al. 2012. Nature 484:49–54. doi:10.1038/nature10915
-- Bar-Matthews M., Ayalon A., Kaufman A. 1997. Quaternary Research 47:155–168.
-- Orland I. et al. 2012. Geochim. Cosmochim. Acta 89:240–255.
-- Stein M. et al. 2010. Quaternary Sci. Rev. 29:567–575.
+- Bar-Matthews M. et al. 1997. Quaternary Research 47(2). https://digitalcommons.usf.edu/kip_articles/10028
+- Orland I., Bar-Matthews M., Ayalon A. 2012. Geochim. Cosmochim. Acta 89. https://digitalcommons.usf.edu/kip_articles/4761
+- Stein M. et al. 2010. Abrupt aridities and salt deposition in the post-glacial Dead Sea. https://cris.huji.ac.il/en/publications/abrupt-aridities-and-salt-deposition-in-the-post-glacial-dead-sea-2/
 - Liu T., Broecker W., Stein M. 2013. Geophys. Res. Lett. 40:2229–2235. doi:10.1002/grl.50492
 - Hartman G. et al. 2016. PNAS 113:3997–4002. doi:10.1073/pnas.1519862113
 - Richerson P., Boyd R., Bettinger R. 2001. American Antiquity 66:387–411. doi:10.2307/2694241
-- Roberts N. et al. 2018. Quaternary Sci. Rev. core.ac.uk/download/131015449.pdf. Authors and volume to confirm.
+- Roberts N. et al. 2018. Pacemaker paper, https://core.ac.uk/download/131015449.pdf. Author list and journal not confirmed.
 
-Volume and page numbers without a DOI are from memory and need checking.
 
 ## Open
 

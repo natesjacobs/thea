@@ -39,13 +39,13 @@ Raised by Kemp in the episode. Leads only; each needs its own pass.
 ## Sources
 
 - Walker M. et al. 2009. J. Quaternary Sci. 24:3–17. doi:10.1002/jqs.1227
-- Weiss E., Zohary D. 2011. Current Anthropology 52(S4):S237–S254. doi:10.1086/658367
-- Zeder M. 2011. Current Anthropology 52(S4):S221–S235. doi:10.1086/659307
-- Arranz-Otaegui A. et al. 2016. PNAS 113:14001–14006. PMC5150421
+- Weiss E., Zohary D. 2011. Current Anthropology 52(S4). doi:10.1086/658367
+- Zeder M. 2011. Current Anthropology 52(S4). doi:10.1086/659307
+- Arranz-Otaegui A. et al. 2016. PNAS. https://pmc.ncbi.nlm.nih.gov/articles/PMC5150421
 - Fuller D., Lucas L. 2025. "Comparing pathways." discovery.ucl.ac.uk/10206457. Full citation not retrieved.
 - Kemp L. 2025. *Goliath's Curse*. Knopf / Viking. Not retrieved.
-- Scheffer M. et al. 2023. PNAS 120:e2218834120. doi:10.1073/pnas.2218834120. Premodern states grow more fragile with age.
-- Kemp L. et al. 2022. PNAS 119:e2108146119. doi:10.1073/pnas.2108146119
+- Scheffer M. et al. 2023. PNAS. doi:10.1073/pnas.2218834120. Premodern states grow more fragile with age.
+- Kemp L. et al. 2022. PNAS. doi:10.1073/pnas.2108146119
 - Scott J. 2017. *Against the Grain*. Yale. Not retrieved.
 - Marciniak S. et al. 2022. PNAS 119:e2106743119. doi:10.1073/pnas.2106743119
 - Munro N., Grosman L. 2010. PNAS 107:15362–15366. doi:10.1073/pnas.1001809107
