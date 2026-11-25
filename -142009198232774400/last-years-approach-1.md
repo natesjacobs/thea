@@ -119,3 +119,41 @@ From Theia every threshold came earlier.
 - **Theia, ~7 days out.** It felt ~8× Earth's tidal stress throughout and broke from normal first.
 
 See `./context.md` and `./timeline.csv`.
+
+## The decades before
+
+From `history_run.py`. Same contact state, integrated backward 3,000 years, then forward from earlier epochs with small errors. One plane (A-013). Modeled, not published.
+
+**Close passes.** Theia's orbit is more stretched than the gap between the orbits. Near each conjunction it loops past Earth about once a year, several times over. Over 3,000 years: 30 passes inside one mutual Hill radius (1.5 million km). Median interval 46 years, about one per conjunction (A-014). Range 6–555 years.
+
+**The last deep pass.** 53.4 years before contact, at 1.06 million km (0.71 Hill radii). It moved Theia from just inside Earth's orbit to 0.013 AU outside it, which set the ~48-year cadence that ends in the hit. Before it, 55–80 years out, the two had nearly the same orbit size, years within a day of each other, and passed within 1.2–2.4 million km four times.
+
+**When the hit becomes certain.** Forward runs, 40 per epoch, Theia known to 1 km and 1 mm/s.
+
+| Years before | Still hits | Contact angle, 5–95% |
+|---|---|---|
+| 1 | 100% | 44.8–45.2° |
+| 5 | 100% | 44.9–45.1° |
+| 10 | 100% | 43.7–46.3° |
+| 20 | 100% | 41.5–49.3° |
+| 30 | 100% | 38.3–53.7° |
+| 50 | 100% | 34.9–60.0° |
+| 53 | 100% | 34.8–55.8° |
+| 54 | 20% | 7.5–71.6° |
+| 80 | 2% | — |
+| 100 | 0% | — |
+
+- The hit is certain from the deep pass at 53.4 years. Half a year before it, it is not.
+- From ~100 years out, rounding error alone changes the outcome.
+- Angle within ±1°: ~5 years out. The spread does not shrink smoothly; it depends on where in the yearly loop the errors start.
+
+**Unseen planetesimal hits on Theia,** at ~10 km/s:
+- 10 km: no effect.
+- 30 km: ±0.7° at 10 years, ±6° at 50.
+- 100 km: 10 years out, 90% still hit, anywhere from 24° to 78°. Even 1 year out, ±4.5°.
+
+The angle locks at ~5–10 years only if every body above ~30 km is accounted for.
+
+**Merger.** From 53 years in, 90% of hits land at 35–60°. At 9.5 km/s that is inside the merge zone at any angle (Genda, Kokubo & Ida 2012).
+
+**Limits.** One plane, so deep passes come more often than with tilted orbits (A-013). Point masses. No other planets or planetesimals. One approach direction. Ranges from 40 runs.
