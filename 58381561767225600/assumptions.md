@@ -1,6 +1,6 @@
 # Assumptions: Land goes sterile; ocean is the whole biosphere (+1.85 Gyr)
 
-Chosen values for this moment. Status words are defined in `../AGENTS.md`.
+Chosen values for this moment. Column definitions and status words are in `../AGENTS.md`.
 
-| ID | Assumption | Value chosen | Range considered | Why this one | Status | Depends on |
-|---|---|---|---|---|---|---|
+| ID | Assumption | Value chosen | Range considered | Why this one | Narrative | Consensus | Depends on | Used in |
+|---|---|---|---|---|---|---|---|---|

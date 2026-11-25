@@ -2,7 +2,7 @@
 
 One modeled approach, worked out in detail. Not canon: the anchor's `context.md` and `timeline.csv` keep options open. Stories may lock it in.
 
-Assumptions: contact per A-002, A-003, A-009 and A-010 in `assumptions.md`. Theia on a neighbouring orbit slightly outside Earth's. One approach direction, chosen as the lowest-eccentricity lane with Theia outside. Another direction changes where each body sits in the other's sky and the impact's local time. Reproduce with `python3 -I approach_run.py`; `scan` shows the other directions.
+Assumptions: contact per A-002, A-003, A-009 and A-010 in `assumptions.md`; orbits per A-011 to A-013. Theia on a neighbouring orbit slightly outside Earth's. One approach direction, chosen as the lowest-eccentricity lane with Theia outside. Another direction changes where each body sits in the other's sky and the impact's local time. Reproduce with `python3 -I approach_run.py`; `scan` shows the other directions.
 
 ## The run
 
